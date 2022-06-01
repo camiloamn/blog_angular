@@ -1,0 +1,43 @@
+<div class="col-md-12 mt-3">
+    <h1>{{page_title}}</h1>
+    <!--<p>  identificate en la plataforma para comenzar</p>-->
+    <!-- <p *ngIf="status != 'success'">       
+        Modifica tus datos personales de usuario
+    </p>
+     -->
+    
+    <!--<div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El resgistro se ha completado correctamente, <a routerLink='/login'>Logeate aquí</a>
+    </div>
+    
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        El resgistro no se ha completado correctamente, vuelve a intentarlo mas tarde
+    </div> -->
+    
+    <!--vamos a crear el formulario -->
+    <form class="col-md-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+     <div class="form-group">
+            <label for="id">Identificacion</label>
+            <input type="text" name="id" class="form-control" #id="ngModel"
+             [(ngModel)]="user.id" required pattern="[0-9]+">
+
+            <small *ngIf="!id.valid && id.touched" class="invalid-feedback d-block">
+                La identificacion no es valida 
+            </small>
+        </div>
+
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" class="form-control" #password="ngModel"
+        [(ngModel)]="user.password" required>
+
+        <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+            La contraseña no es valido 
+        </small>
+    </div>
+        <input type="submit" value="Identificarse" class="btn btn-success" [disabled]=
+        "loginForm.invalid"/>    
+        
+    </form>
+    
+</div>

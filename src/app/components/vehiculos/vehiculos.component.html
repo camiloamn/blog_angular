@@ -1,0 +1,34 @@
+<div class="col-md-12 mt-3">
+    <h1>{{page_title}}</h1>
+    <p *ngIf="status != 'success'">       
+        Crea un nuevo Vehiculo 
+    </p>
+    <hr/><!--LINEA DIVISORIA-->
+
+     <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El vehiculo se ha creado correctamente !! 
+    </div>
+    
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        El vehiculo no se ha guardado !!!                                                                                                
+    </div> 
+
+    <!--FORMULARIO DE CREAR VEHICULOS-->
+    <!--ngform es formulario de angular-->    
+    <!--ngIf sirve para hacer una condicion -->
+    <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="col-md-5">
+        <div class="form-group">
+            <label for="claseVehiculo">Nombre</label>
+            <input type="text" name="claseVehiculo" class="form-control" #claseVehiculo="ngModel" [(ngModel)]=
+            "vehiculo.claseVehiculo" required />
+            <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
+                El nombre del vehiculo esta erroneo
+            </small>            
+        </div>
+
+        <input type="submit" value="guardar" class="btn btn-success" [disabled]="
+        vehiculoForm.invalid" />
+
+    </form>
+    
+</div>

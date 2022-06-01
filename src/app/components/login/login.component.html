@@ -1,0 +1,69 @@
+<script src="http://code.jquery.com/jquery.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+<div id="formContent">    
+  
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+
+    <p *ngIf="status != 'success'"> </p>    
+    
+    <!-- <div class="alert alert-success" *ngIf="status == 'success'">      
+      "El ingreso se ha realizado correctamenteeeeeeeeeeeeeeee"
+    </div>
+   
+    <div class="alert alert-dangers" *ngIf="status == 'error'">
+      "Usuario o clave incorrectos"
+    </div> -->
+
+    <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+      <img src="/assets/images/user3.png" width="220  px" />
+      <!--<img src="images" id="icon" alt="User Icon" />-->
+    </div>  
+    
+     <!-- <div class="alert alert-success" *ngIf="status == 'success'">      
+      "El ingreso se ha realizado correctamenteeeeeeeeeeeeeeee"
+    </div>
+   
+    <div class="alert alert-dangers" *ngIf="status == 'error'">
+      "Usuario o clave incorrectos"
+    </div> -->
+
+
+    <!-- SE CREA EL FORMULARIO DE INGRESO -->
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+     
+      <input type="text" id="login" class="fadeIn second" name="id" placeholder="Usuario" #id="ngModel"
+      [(ngModel)]="user.id" required pattern="[0-9]+">
+
+      <small *ngIf="!id.valid && id.touched" class="invalid-feedback d-block">
+        La identificacion no es valida 
+      </small>
+      
+      <input type="text" id="contraseña" class="fadeIn third" name="password" placeholder="Contraseña" #password="ngModel"
+      [(ngModel)]="user.password" required>
+
+      <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+        La contraseña no es valida
+      </small>       
+      
+      <!-- <input type="submit" class="fadeIn fourth" value="Ingresa"> -->
+      <input type="submit" class="fadeIn fourth" value="Ingresa" [disabled]=
+      "loginForm.invalid"/>
+      
+    </form>
+    
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" (click) = "goRegister()" style="cursor: pointer;" >Crear usuario</a>
+    </div>  
+
+  </div>
+<!-- </div> -->
+</div>

@@ -1,0 +1,59 @@
+<div class="container"> <!--CONTENEDOR PRINCIPAL-->
+  <br> <!--SALTO DE LINEA -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="identity != null"><!--BARRA DE NAAVEGACION-->
+  <a class="navbar-brand" href="#">
+    <img src="/assets/images/comfamiliar.jpg" width="30" height="30" alt="">
+    Parking</a><!--NOMBRE DE LA WEB-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink='/inicio'> inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Vehiculos</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav navbar-right" *ngIf="!identity" ><!--BARRA QUE FLOTA A LA DERECHA DE LA PANTALLA-->
+      <li class="nav-item active">
+        <a class="nav-link" routerLink='/login'>Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="registro">Registro</a>
+      </li>
+    </ul>
+
+      <ul class="navbar-nav navbar-right" *ngIf="identity && identity.nombre"><!--BARRA QUE FLOTA A LA DERECHA DE LA PANTALLA-->    
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">
+         {{ identity.nombre + ' ' + identity.apellidos}}
+         <!--{{identity.nombre}}-->
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Crear entrada</a>
+          <a class="dropdown-item" [routerLink]="['/crear-vehiculo']">Crear vehiculo</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Mi perfil</a>
+          <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
+          <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
+        </div>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>-->
+    </ul>
+   
+  </div>
+</nav><!--CERRAR BARRA DE NAVEGACION-->
+
+<!--CONTENIDO-->
+<router-outlet></router-outlet>
+
+<!--<login></login>-->
+<!--<register></register>-->
+</div><!--CERRAR CONTENEDOR PRINCIPAL-->
