@@ -1,69 +1,54 @@
-<script src="http://code.jquery.com/jquery.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="wrapper fadeInDown">
-<div id="formContent">    
-  
-    <!-- Tabs Titles -->
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 
-    <!-- Icon -->
-
-    <p *ngIf="status != 'success'"> </p>    
-    
-    <!-- <div class="alert alert-success" *ngIf="status == 'success'">      
-      "El ingreso se ha realizado correctamenteeeeeeeeeeeeeeee"
+<div class="container">
+    <div class="row login_box">
+	    <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h3>12 : 30 AM</h3></div>
+            <div class="wrapper"><img src="/assets/images/user01.jpg" class="img-circle"/></div>   
+            <h1>LOGIN</h1>
+            
+	    </div>
+        <div class="col-md-6 col-xs-6 follow line text-center">
+            <h3>
+                 125651 <br/> <span>FOLLOWERS</span>
+            </h3>
+        </div>
+        <div class="col-md-6 col-xs-6 follow line text-center">
+            <h3>
+                 125651 <br/> <span>FOLLOWERS</span>
+            </h3>
+        </div>
+        
+        <div class="col-md-12 col-xs-12 login_control">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">        
+                <div class="control">                    
+                    <input type="text" id="login" class="form-control" name="id" placeholder="Usuario" #id="ngModel"
+                    [(ngModel)]="user.id" required pattern="[0-9]+">
+                    
+                </div>
+                
+                <div class="control">                     
+                    <input type="password" id="contraseña" class="form-control" name="password" placeholder="Contraseña" #password="ngModel"
+                    [(ngModel)]="user.password" required>
+                </div>
+                <div class="text-center form-control">
+                     <button class="btn btn-orange">Ingresar</button>
+                </div>
+                
+                
+            </form>
+            
+            
+        </div>
+        <div id="formFooter">
+            <a class="underlineHover" (click) = "goRegister()" style="cursor: pointer;" >Crear usuario</a>
+            
+          </div> 
+            
     </div>
-   
-    <div class="alert alert-dangers" *ngIf="status == 'error'">
-      "Usuario o clave incorrectos"
-    </div> -->
-
-    <div class="fadeIn first">
-      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
-      <img src="/assets/images/user3.png" width="220  px" />
-      <!--<img src="images" id="icon" alt="User Icon" />-->
-    </div>  
-    
-     <!-- <div class="alert alert-success" *ngIf="status == 'success'">      
-      "El ingreso se ha realizado correctamenteeeeeeeeeeeeeeee"
-    </div>
-   
-    <div class="alert alert-dangers" *ngIf="status == 'error'">
-      "Usuario o clave incorrectos"
-    </div> -->
-
-
-    <!-- SE CREA EL FORMULARIO DE INGRESO -->
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-     
-      <input type="text" id="login" class="fadeIn second" name="id" placeholder="Usuario" #id="ngModel"
-      [(ngModel)]="user.id" required pattern="[0-9]+">
-
-      <small *ngIf="!id.valid && id.touched" class="invalid-feedback d-block">
-        La identificacion no es valida 
-      </small>
-      
-      <input type="text" id="contraseña" class="fadeIn third" name="password" placeholder="Contraseña" #password="ngModel"
-      [(ngModel)]="user.password" required>
-
-      <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
-        La contraseña no es valida
-      </small>       
-      
-      <!-- <input type="submit" class="fadeIn fourth" value="Ingresa"> -->
-      <input type="submit" class="fadeIn fourth" value="Ingresa" [disabled]=
-      "loginForm.invalid"/>
-      
-    </form>
-    
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" (click) = "goRegister()" style="cursor: pointer;" >Crear usuario</a>
-    </div>  
-
-  </div>
-<!-- </div> -->
 </div>

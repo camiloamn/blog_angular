@@ -1,261 +1,182 @@
+body{
+    background-color: #2B2B2B;   
+   }
+   
+   *{
+       font-family: 'Raleway', sans-serif;
+       color : #FFF;
+       
+   }   
+   
+   div h3 span{
+        color : #FFF;
+        font-size:14px;
+   }
+   
+   div span {
+        font-weight: 200;
+   }
+   
+   h1{
+        font-weight: 200;
+   }
+   
+   .login_box{
+       background: #f32d27; /* Old browsers */
+       /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+       background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUlIiBzdG9wLWNvbG9yPSIjZjMyZDI3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iOTklIiBzdG9wLWNvbG9yPSIjZmY2YjQ1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+       background: -moz-linear-gradient(45deg,  #f32d27 5%, #ff6b45 99%); /* FF3.6+ */
+       background: -webkit-gradient(linear, left bottom, right top, color-stop(5%,#f32d27), color-stop(99%,#ff6b45)); /* Chrome,Safari4+ */
+       background: -webkit-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* Chrome10+,Safari5.1+ */
+       background: -o-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* Opera 11.10+ */
+       background: -ms-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* IE10+ */
+       background: linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* W3C */
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f32d27', endColorstr='#ff6b45',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+       
+       width:35%;
+      /* height:70%; */
+       position:absolute;
+       top:15%;
+       left:32.5%;
+       
+       -webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+   -moz-box-shadow:    0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+   box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+   }
+   
+   @media (max-width: 767px) {
+       .login_box{
+           background: #f32d27; /* Old browsers */
+           /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+           background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUlIiBzdG9wLWNvbG9yPSIjZjMyZDI3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iOTklIiBzdG9wLWNvbG9yPSIjZmY2YjQ1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+           background: -moz-linear-gradient(45deg,  #f32d27 5%, #ff6b45 99%); /* FF3.6+ */
+           background: -webkit-gradient(linear, left bottom, right top, color-stop(5%,#f32d27), color-stop(99%,#ff6b45)); /* Chrome,Safari4+ */
+           background: -webkit-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* Chrome10+,Safari5.1+ */
+           background: -o-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* Opera 11.10+ */
+           background: -ms-linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* IE10+ */
+           background: linear-gradient(45deg,  #f32d27 5%,#ff6b45 99%); /* W3C */
+           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f32d27', endColorstr='#ff6b45',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+           
+           width:90%;
+           height:80%;
+           position:absolute;
+           top:10%;
+           left:5%;
+           
+           -webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+   -moz-box-shadow:    0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+   box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+       }
+   }
+   
+   .img-circle{
+       border-radius: 50%;
+       width: 175px;
+       height: 175px;
+       border: 4px solid #FFF;
+       margin: 10px;
+   }
+   
+   .follow{
+       background-color:#FC563B;
+       height: 80px;
+       cursor:pointer;
+   }
+   
+   .follow:hover {
+       background-color:#F22F26;
+       height: 80px;
+       cursor:pointer;
+       color: #000000;
+   }
+   
+   .login_control{
+       background-color:#FFF;
+       padding:10px;
+       
+   }
+   
+   .control {
+       color:#000;
+       margin:10px;
+   }
+   
+   .label {
+       color: #EB4F26;
+       font-size: 18px;
+       font-weight: 500;
+   }
+   
+   .form-control{
+       color: #000000 !important;
+       font-size: 25px;
+       border: none;
+       padding: 25px;
+       padding-left: 10px;
+       border-bottom: 1px solid #CCC;
+       margin-bottom: 10px;
+       outline: none;
+       -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+       box-shadow: none !important;
+   }
+   
+   .form-control:focus{
+       border-radius: 0px;
+       border-bottom: 1px solid #FC563B;
+       margin-bottom: 10px;
+       outline: none;
+       -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+       box-shadow: none !important;
+   }
 
-html {
-  background-color: #56baed;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-}
-
-a {
-  color: rgba(0, 0, 0, 0.773);/*color letra de crear usuario #0087fc*/
-  display:inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px; 
-  color: #cccccc;
-}
-
-
-
-/* STRUCTURE */
-
-.wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-  justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  padding: 20px;
-}
-
-#formContent {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: rgba(255, 255, 255, 0.486);/*color fondo del usuario rgb(255, 255, 255) */
-  padding: 30px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgb(63, 55, 55);/*sombras fuera del login rgba(0, 0, 0, 0.3) */
-  box-shadow: 0 30px 60px 0 rgb(168, 155, 155);/*sombras fuera del login rgba(0, 0, 0, 0.3) */
-  text-align: center;
-}
-
-#formFooter {
-  background-color: #d7deee9d;/*color pie de pagina */
-  border-top: 1px solid #d7deee9d;/*linea de pie de pagina */
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
-}
-
-
-
-/* TABS */
-
-h2.inactive {
-  color: #cccccc;
-}
-
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
-}
-
-
-
-/* FORM TYPOGRAPHY*/
-
-input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #5fa6e9;/*color boton*/
-  border: none;
-  color: rgb(34, 32, 32);/*color letra del boton de ingresa rgb(255, 255, 255)*/
-  padding: 15px 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(241, 241, 241, 0.4);/*sombra boton rgba(95,186,233,0.4)*/
-  box-shadow: 0 10px 30px 0 rgba(165, 166, 167, 0.4);/*sombra boton rgba(95,186,233,0.4)*/
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  margin: 5px 20px 40px 20px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: hsla(0, 4%, 77%, 0.396);/*cambia de color cuando se esta en el boton ingresa #39ace7*/
-}
-
-input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
-  -moz-transform: scale(0.95);
-  -webkit-transform: scale(0.95);
-  -o-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
-}
-
-input[type=text] {
-  background-color: #c7c2c238;/*fondo de los campos usuario y contraseña*/
-  border: none;
-  color: #0000009a;/*color letra usuario y contraseña #0d0d0d */
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-  width: 85%;
-  border: 2px solid #fff9f9ee;/*color borde campos usuario y contraseña #f6f6f6 */
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
-input[type=text]:focus {
-  background-color: #fff;/*fondo de los campos de usuario y contraseña al dar clic para escribir */
-  border-bottom: 2px solid #5fa6e9;/*linea que subraya las letras de usuario y contraseña*/
-}
-
-input[type=text]:placeholder {
-  color: #cccccc;
-}
-
-
-
-/* ANIMATIONS */
-
-/* Simple CSS3 Fade-in-down Animation */
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+   #formFooter {
+    background-color: #d7deee9d;/*color pie de pagina */
+    border-top: 1px solid #d7deee9d;/*linea de pie de pagina */
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
   }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+
+   .btn-orange{
+       background-color: #FC563B;
+       border-radius: 0px;
+       margin: 5px;
+       padding: 5px;
+       width: 150px;
+       font-size: 20px;
+       font-weight: inherit;
+   }
+   
+   .btn-orange:hover {
+       background-color: #F22F26;
+       border-radius: 0px;
+       margin: 5px;
+       padding: 5px;
+       width: 150px;
+       font-size: 20px;
+       font-weight: inherit;
+       color:#ffffff !important;
+   }
+   
+   .line{
+       border-bottom : 2px solid #F32D27;
+   }
+   
+   
+   .wrapper{
+       padding: 0px;
+       border: 1px solid rgba(255, 255, 255, 0.29);
+       border-radius: 50%;
+       width: 200px;
+       height: 200px;
+   }
+   
+   a {
+    color: #080909;/*color letra de crear usuario #0087fc*/
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 800;
   }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-/* Simple CSS3 Fade-in Animation */
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.fadeIn {
-  opacity:0;
-  -webkit-animation:fadeIn ease-in 1;
-  -moz-animation:fadeIn ease-in 1;
-  animation:fadeIn ease-in 1;
-
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
-
-  -webkit-animation-duration:1s;
-  -moz-animation-duration:1s;
-  animation-duration:1s;
-}
-
-.fadeIn.first {
-  -webkit-animation-delay: 0.4s;
-  -moz-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-}
-
-.fadeIn.second {
-  -webkit-animation-delay: 0.6s;
-  -moz-animation-delay: 0.6s;
-  animation-delay: 0.6s;
-}
-
-.fadeIn.third {
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-}
-
-.fadeIn.fourth {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  animation-delay: 1s;
-}
-
-/* Simple CSS3 Fade-in Animation */
-.underlineHover:after {
-  display: block;
-  left: 0;
-  bottom: -10px;
-  width: 0;
-  height: 2px;
-  background-color: rgba(59, 59, 59, 0.651);;/*color linea debajo de letras crear usuario #56baed*/
-  content: "";
-  transition: width 0.2s;
-}
-
-.underlineHover:hover {
-  color: #0d0d0da9;/*color de las letras crear usuario cuando paso el raton encima */
-}
-
-.underlineHover:hover:after{
-  width: 100%;
-}
-
-
-
-/* OTHERS */
-
-*:focus {
-    outline: none;
-} 
-
-#icon {
-  width:60%;
-}
-
