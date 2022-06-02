@@ -48,7 +48,8 @@ export class VehiculosComponent implements OnInit {
           this.vehiculo = response.vehiculo;
           this.status = 'success';
 
-          this._router.navigate([response]);//redireccion  a la pagina de inicio 
+          this._router.navigate(['crear-vehiculo']);//redireccion  a la pagina de inicio 
+          form.reset();
         }else{
           this.status = 'error';
         }

@@ -8,21 +8,14 @@
 <div class="container">
     <div class="row login_box">
 	    <div class="col-md-12 col-xs-12" align="center">
-            <div class="line"><h3>12 : 30 AM</h3></div>
+            <div class="text"><h2>{{todayWithPipe}}</h2></div>
+            
+            <!--<p>{{ date | date }}</p>-->
             <div class="wrapper"><img src="/assets/images/user01.jpg" class="img-circle"/></div>   
             <h1>LOGIN</h1>
             
 	    </div>
-        <div class="col-md-6 col-xs-6 follow line text-center">
-            <h3>
-                 125651 <br/> <span>FOLLOWERS</span>
-            </h3>
-        </div>
-        <div class="col-md-6 col-xs-6 follow line text-center">
-            <h3>
-                 125651 <br/> <span>FOLLOWERS</span>
-            </h3>
-        </div>
+        
         
         <div class="col-md-12 col-xs-12 login_control">
             <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">        
@@ -36,19 +29,19 @@
                     <input type="password" id="contraseña" class="form-control" name="password" placeholder="Contraseña" #password="ngModel"
                     [(ngModel)]="user.password" required>
                 </div>
-                <div class="text-center form-control">
+                <div class="text-center">
                      <button class="btn btn-orange">Ingresar</button>
+                     <br>
+                     <button class="btn btn-primary" (click) = "goRegister()" >Crear usuario</button>
                 </div>
-                
+                <div class="control">            
+        
+                </div> 
                 
             </form>
             
             
         </div>
-        <div id="formFooter">
-            <a class="underlineHover" (click) = "goRegister()" style="cursor: pointer;" >Crear usuario</a>
-            
-          </div> 
-            
+                   
     </div>
 </div>

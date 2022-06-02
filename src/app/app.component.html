@@ -2,20 +2,20 @@
   <br> <!--SALTO DE LINEA -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="identity != null"><!--BARRA DE NAAVEGACION-->
   <a class="navbar-brand" href="#">
-    <img src="/assets/images/comfamiliar.jpg" width="30" height="30" alt="">
-    Parking</a><!--NOMBRE DE LA WEB-->
+    <img src="/assets/images/comfamiliar.jpg" width="30" height="30" alt="30">
+    --Parqueadero--</a><!--NOMBRE DE LA WEB-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <!--<li class="nav-item active">
         <a class="nav-link" routerLink='/inicio'> inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
+      </li>-->
+      <!--<li class="nav-item">
         <a class="nav-link" href="#">Vehiculos</a>
-      </li>
+      </li>-->
     </ul>
 
     <ul class="navbar-nav navbar-right" *ngIf="!identity" ><!--BARRA QUE FLOTA A LA DERECHA DE LA PANTALLA-->
@@ -35,10 +35,11 @@
          <!--{{identity.nombre}}-->
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Crear entrada</a>
-          <a class="dropdown-item" [routerLink]="['/crear-vehiculo']">Crear vehiculo</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Mi perfil</a>
+          
+          <a class="dropdown-item" [routerLink]="['/crear-vehiculo']">Crear tipo vehiculo</a>
+          <a class="dropdown-item" href="#">Crear vehiculo</a>
+          <!--<div class="dropdown-divider"></div>-->
+          <!--<a class="dropdown-item" href="#">Mi perfil</a>-->
           <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
           <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
         </div>

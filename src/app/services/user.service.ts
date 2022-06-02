@@ -18,7 +18,7 @@ export class UserService {
         this.url = global.url;
     }
     test(){
-        return "hola mundo";
+        //return "hola mundo";
     }
     //METODO DE REGISTRO
     register(user: any): Observable<any>{ // el objeto user, devuelve un observale (en donde van las respuestas del api) 

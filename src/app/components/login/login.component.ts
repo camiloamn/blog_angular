@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { delay } from 'rxjs';
 import { User } from 'src/app/models/user';//importamos el modelo user
 import { UserService } from 'src/app/services/user.service';//importamos el servicio
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   public token: any;
   public identity: any;
   public v:any = true;
+  today: Date = new Date();
+  hora = new DatePipe('en-US');
+  todayWithPipe:any = null;
 
   constructor(
     private _userService: UserService, //creamos la propiedad del userService
@@ -24,13 +28,14 @@ export class LoginComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.page_title = 'Identificate';
-    this.user = new User('', '', '', '', '');//el objeto 
-
+    this.user = new User('', '', '', '', ''); //el objeto 
+    
   }
 
   ngOnInit(): void {
     //SE EJECUTA SIEMPRE Y CIERRA SESION SOLO CUANDO LE LLEGA EL PARAMETRO SURE POR LA URL
     this.logout();
+    this.todayWithPipe = this.hora.transform(Date.now(),'h:mm a');
   }
 
   goRegister(): any{
