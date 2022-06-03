@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
+import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.component';
 
 //importamos los modulos
 @NgModule({
@@ -22,7 +23,8 @@ import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
     HomeComponent,
     ErrorComponent,
     UserEditComponent,
-    VehiculosComponent
+    VehiculosComponent,
+    TipoVehiculoComponent
   ],
   imports: [
     BrowserModule,

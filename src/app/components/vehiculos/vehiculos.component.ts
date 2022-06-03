@@ -32,13 +32,17 @@ export class VehiculosComponent implements OnInit {
 
     //darle valor a las propiedaes 
 
-      this.page_title = "Crear un vehiculo";
+      this.page_title = "Vehiculos";
       this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
       this.token = this._userService.getToken();//acccedo al token del usuario identificado 
       this.vehiculo = new Vehiculos('',this.array['id']);//instancia de el objeto vacio
   }
 
   ngOnInit(): void {
+  }
+
+  regresar(): any{
+    this._router.navigate(['crear-vehiculos']);
   }
 
   onSubmit(form:any){

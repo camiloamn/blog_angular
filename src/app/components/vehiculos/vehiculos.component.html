@@ -1,7 +1,7 @@
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">       
-        Crea un nuevo tipo de vehiculo 
+        Crea una nueva clase de vehiculo 
     </p>
     <hr/><!--LINEA DIVISORIA-->
 
@@ -22,12 +22,15 @@
             <input type="text" name="claseVehiculo" class="form-control" #claseVehiculo="ngModel" [(ngModel)]=
             "vehiculo.claseVehiculo" required />
             <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
-                El nombre del vehiculo esta erroneo
+                El nombre del vehiculo es erroneo
             </small>            
         </div>
 
-        <input type="submit" value="guardar" class="btn btn-success" [disabled]="
-        vehiculoForm.invalid" />
+       <!-- <input type="submit" value="guardar" class="btn btn-success" [disabled]="
+        vehiculoForm.invalid" />-->
+
+        <button class="btn btn-info">Guardar</button>
+        <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
 
     </form>
     

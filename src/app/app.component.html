@@ -1,4 +1,5 @@
-<div class="container"> <!--CONTENEDOR PRINCIPAL-->
+<!--CONTENEDOR PRINCIPAL-->
+<div class="container"> 
   <br> <!--SALTO DE LINEA -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="identity != null"><!--BARRA DE NAAVEGACION-->
   <a class="navbar-brand" href="#">
@@ -36,7 +37,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           
-          <a class="dropdown-item" [routerLink]="['/crear-vehiculo']">Crear tipo vehiculo</a>
+          <a class="dropdown-item" [routerLink]="['/crear-vehiculo']">Crear clase vehiculo</a>
           <a class="dropdown-item" href="#">Crear vehiculo</a>
           <!--<div class="dropdown-divider"></div>-->
           <!--<a class="dropdown-item" href="#">Mi perfil</a>-->
@@ -57,4 +58,5 @@
 
 <!--<login></login>-->
 <!--<register></register>-->
+<!--<tipoVehiculo></tipoVehiculo>-->
 </div><!--CERRAR CONTENEDOR PRINCIPAL-->

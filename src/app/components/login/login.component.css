@@ -132,7 +132,7 @@ body{
    }
   
    .btn-orange{
-       background-color: #1d5ee1;
+       background-color: #1d44e1;
        border-radius: 0px;
        margin: 5px;
        padding: 5px;
@@ -142,7 +142,7 @@ body{
    }
    
    .btn-orange:hover {
-       background-color: #1d5ee1;
+       background-color: #1d44e1;
        border-radius: 0px;
        margin: 5px;
        padding: 5px;
@@ -152,7 +152,7 @@ body{
        color:#ffffff !important;
    }
 
-   .btn-warning{
+   .btn-primary{
     /*background-color: #FC563B;*/
     border-radius: 0px;
     margin: 5px;
@@ -163,7 +163,7 @@ body{
     object-position: center;
 }
 
-.btn-warning:hover {
+.btn-primary:hover {
     /*background-color: #F22F26;*/
     border-radius: 0px;
     margin: 5px;
