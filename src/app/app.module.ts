@@ -24,7 +24,7 @@ import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.
     ErrorComponent,
     UserEditComponent,
     VehiculosComponent,
-    TipoVehiculoComponent
+    TipoVehiculoComponent,
   ],
   imports: [
     BrowserModule,

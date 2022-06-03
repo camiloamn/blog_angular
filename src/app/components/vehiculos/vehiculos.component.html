@@ -13,15 +13,15 @@
         El vehiculo no se ha guardado !!!                                                                                                
     </div> 
 
-    <!--FORMULARIO DE CREAR VEHICULOS-->
+    <!--FORMULARIO DE CREAR CLASE DE VEHICULOS-->
     <!--ngform es formulario de angular-->    
     <!--ngIf sirve para hacer una condicion -->
     <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="col-md-5">
         <div class="form-group">
-            <label for="claseVehiculo">Nombre</label>
-            <input type="text" name="claseVehiculo" class="form-control" #claseVehiculo="ngModel" [(ngModel)]=
-            "vehiculo.claseVehiculo" required />
-            <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
+            <label for="Vehiculo">Nombre</label>
+            <input type="text" name="Vehiculo" class="form-control" #Vehiculo="ngModel" [(ngModel)]=
+            "vehiculo.Vehiculo" required />
+            <small *ngIf="Vehiculo.valid && Vehiculo.touched" class="invalid-feedback d-block">
                 El nombre del vehiculo es erroneo
             </small>            
         </div>

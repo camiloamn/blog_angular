@@ -42,7 +42,7 @@ export class VehiculosComponent implements OnInit {
   }
 
   regresar(): any{
-    this._router.navigate(['crear-vehiculos']);
+    this._router.navigate(['crear-vehiculo']);
   }
 
   onSubmit(form:any){
