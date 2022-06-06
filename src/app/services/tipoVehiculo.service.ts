@@ -7,6 +7,7 @@ import { TipoVehiculos } from "../models/tipovehiculos";
 import { global } from "./global";
 import { param } from "jquery";
 
+
 //definir la clase de servicios 
 @Injectable()
 export class tipoVehiculoService {
@@ -19,21 +20,29 @@ export class tipoVehiculoService {
     ){
         this.url = global.url;
     }
-    //metodo que nos permite crear una nueva clase de vehiculo
+    //metodo que nos permite crear un nuevo tipo de vehiculo
     create(token:any, tipovehiculos:any):Observable<any>{
         let json = JSON.stringify(tipovehiculos);//la convierto en un json string
         let params = "json="+json;//defino la variable params y los datos qu ele paso por post
         
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                        .set('Authorization', token);
+
         //console.log(params+'aqui esta el error');
-        return this._http.post(this.url+'store', params, {headers: headers});//peticion ajax
+        return this._http.post(this.url+'tipo/store', params, {headers: headers});//peticion ajax
 
     }
     //metodo que nos permite listar los vehiculos
         getTipoVehiculos():Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         //metodo que ya lo voy a poder utilizar en la app.component.ts ya que es la vista del menu y es le componente padre 
-        return this._http.get(this.url + 'tipoVehiculos', {headers: headers});
+        return this._http.get(this.url + 'tipo/store', {headers: headers});
+    }
+    getAllVehiculos(token:any):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
+                                      
+        //console.log(params+'aqui esta el error');
+        return this._http.post(this.url+'tipo/getAllVehiculo',  {headers: headers});//peticion ajax
+
     }
 }

@@ -26,7 +26,7 @@ export class vehiculoService {
         
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                        .set('Authorization', token);
-        //console.log(params+'aqui esta el error');
+        //console.log(params+' aqui esta el error');
         return this._http.post(this.url+'store', params, {headers: headers});//peticion ajax
 
     }
@@ -34,6 +34,6 @@ export class vehiculoService {
     getVehiculos():Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         //metodo que ya lo voy a poder utilizar en la app.component.ts ya que es la vista del menu y es le componente padre 
-        return this._http.get(this.url + 'vehiculo', {headers: headers});
+     return this._http.get(this.url + 'vehiculo', {headers: headers});
     }
 }

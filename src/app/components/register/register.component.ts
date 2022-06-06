@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   regresar(): any{
-    this._router.navigate(['inicio']);
+    this._router.navigate(['login']);
   }
   onSubmit(form:any){
     

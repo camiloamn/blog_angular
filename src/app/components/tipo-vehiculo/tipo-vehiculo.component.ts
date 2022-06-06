@@ -31,7 +31,6 @@ export class TipoVehiculoComponent implements OnInit {
     private _tipoVehiculoService: tipoVehiculoService,
 
   ){
-
     this.array= JSON.parse(localStorage.getItem('identity')+'');//traigo el id de usuario como json y lo convierto en array es como traer el usuario del momento 
     
     //darle valor a las propiedades
@@ -40,19 +39,20 @@ export class TipoVehiculoComponent implements OnInit {
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado 
     this.tipovehiculo = new TipoVehiculos('','','');//instancia de el objeto vacio
+    this.getAll();
   }
 
   ngOnInit(): void {
   }
 
   regresar(): any{
-    this._router.navigate(['tipo-vehiculos']);
+    this._router.navigate(['inicio']);
   }
 
   onSubmit(form:any){
     this._tipoVehiculoService.create(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
-        if(response.status == 'success'){//si la respuesta es correcta
+        if(response.status == "success"){//si la respuesta es correcta
           this.tipovehiculo = response.tipoVehiculo;
           this.status = 'success';
 
@@ -68,5 +68,14 @@ export class TipoVehiculoComponent implements OnInit {
       }
     );
   }
+  getAll(){
+    this._tipoVehiculoService.getAllVehiculos(this.token).subscribe(
+      response => {
+        console.log("este!")
+        console.log(response);
+      }
+    )
+  }
+
 
 }
