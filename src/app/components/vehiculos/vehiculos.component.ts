@@ -42,9 +42,7 @@ export class VehiculosComponent implements OnInit {
     //console.log('Componente de resgitro lanzado!!');
     //console.log(this._userService.test());
 
-  }
-
-  
+  }  
 
   regresar(): any{
     this._router.navigate(['inicio']);
@@ -53,7 +51,7 @@ export class VehiculosComponent implements OnInit {
   onSubmit(form:any){
     this._vehiculoService.create(this.token, this.vehiculo).subscribe(//utilizar el metodo create
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
-        if(response.status == "success"){//si la respuesta es correcta
+        if(response.status == 'success'){//si la respuesta es correcta
           this.vehiculo = response.vehiculo;
           this.status = 'success';
 

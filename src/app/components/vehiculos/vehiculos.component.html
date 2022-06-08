@@ -1,7 +1,7 @@
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">       
-        Crea una nueva clase de vehiculo 
+        Crea un vehiculo 
     </p>
     <hr/><!--LINEA DIVISORIA-->
 
@@ -18,9 +18,9 @@
     <!--ngIf sirve para hacer una condicion -->
     <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="col-md-5">
         <div class="form-group">
-            <label for="Vehiculo">Nombre</label>
+            <label for="name">Nombre</label>
             <input type="text" name="claseVehiculo" class="form-control" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required />
-            <small *ngIf="claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
+            <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
                 El nombre del vehiculo es erroneo
             </small>            
         </div>
@@ -28,7 +28,7 @@
        <!-- <input type="submit" value="guardar" class="btn btn-success" [disabled]="
         vehiculoForm.invalid" />-->
 
-        <button class="btn btn-info">Guardar</button>
+        <input type="submit" value="Guardar" class="btn btn-info"/>
         <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
 
     </form>

@@ -3,7 +3,7 @@ import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from "@angular/commo
 import { identity} from 'rxjs';//cambie la ruta quite el identiy identity
 //import { identity, observable} from 'rxjs'; tenia unida en una sola este import
 import { Observable } from "rxjs"; 
-import { TipoVehiculos } from "../models/tipovehiculos"; 
+import { Tipovehiculos } from "../models/tipovehiculos"; 
 import { global } from "./global";
 import { param } from "jquery";
 
@@ -29,6 +29,7 @@ export class tipoVehiculoService {
                                        .set('Authorization', token);
 
         //console.log(params+'aqui esta el error');
+        console.log(params);
         return this._http.post(this.url+'tipo/store', params, {headers: headers});//peticion ajax
 
     }
@@ -39,10 +40,12 @@ export class tipoVehiculoService {
         return this._http.get(this.url + 'tipo/store', {headers: headers});
     }
     getAllVehiculos(token:any):Observable<any>{
-        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
-                                      
+        
+/*         let json = JSON.stringify({'':''}); */
+        let params = 'json={"a":"1"}';
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);                         
         //console.log(params+'aqui esta el error');
-        return this._http.post(this.url+'tipo/getAllVehiculo',  {headers: headers});//peticion ajax
+        return this._http.post(this.url+'tipo/getAllVehiculos', params, {headers: headers});//peticion ajax
 
     }
 }

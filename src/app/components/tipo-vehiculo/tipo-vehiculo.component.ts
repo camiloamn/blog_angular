@@ -3,8 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';//sirve para ha
 import { UserService } from 'src/app/services/user.service';//sirve para agarrar el token y la identidad del usuario
 //import { vehiculoService } from 'src/app/services/vehiculo.service';
 import { tipoVehiculoService } from 'src/app/services/tipoVehiculo.service';
-import { TipoVehiculos } from 'src/app/models/tipovehiculos';  
-
+import { Tipovehiculos } from 'src/app/models/tipovehiculos';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class TipoVehiculoComponent implements OnInit {
   public page_title: String;
   public identity: any;
   public token: any;
-  public tipovehiculo:any = TipoVehiculos;
+  public tipovehiculo:any = Tipovehiculos;
   public status: string | undefined; 
   public array: any = [];
 
@@ -38,7 +37,9 @@ export class TipoVehiculoComponent implements OnInit {
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado 
-    this.tipovehiculo = new TipoVehiculos('','','');//instancia de el objeto vacio
+    this.tipovehiculo = new Tipovehiculos('','','111');//instancia de el objeto vacio
+
+    console.log("estos")
     this.getAll();
   }
 

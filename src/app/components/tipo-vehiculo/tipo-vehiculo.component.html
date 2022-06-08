@@ -1,8 +1,8 @@
-<p>tipo-vehiculo works!</p>
+
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">       
-        Crea un vehiculo 
+        Crea un nuevo tipo de vehiculo 
     </p>
     <hr/><!--LINEA DIVISORIA-->
 
@@ -19,20 +19,46 @@
     <!--ngIf sirve para hacer una condicion -->
     <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
         <div class="form-group">
-            <label for="TipoVehiculos">Nombre</label>
-            <input type="text" name="TipoVehiculos" class="form-control" #TipoVehiculos="ngModel" [(ngModel)]=
-            "tipovehiculo.nombre" required />
-            <small *ngIf="TipoVehiculos.valid && TipoVehiculos.touched" class="invalid-feedback d-block">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Escoja una clase de vehiculo</option>
+                <option value="1">Grande</option>
+                <option value="2">Mediano</option>
+                <option value="3">Pequeño</option>
+              </select>
+            <br>
+            <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
+            <label for="name">Nombre</label>
+              <input type="text" name="nombre" class="form-control" #nombre="ngModel" 
+              [(ngModel)]="tipovehiculo.nombre" required>
+              <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
+                    este campo es erroneo"!
+              </small>
+
+     <!--       <input type="text" name="tipoVehiculos" class="form-control" #tipoVehiculos="ngModel" [(ngModel)]=
+            "tipovehicu-lo.nombre" required />
+            <small *ngIf="!tipoVehiculos.valid && tipoVehiculos.touched" class="invalid-feedback d-block">
                 El nombre del vehiculo es erroneo
-            </small>            
+            </small>-->
+            
+            <label for="numPlaca">Placa</label>
+            <input type="text" name="Placa" class="form-control" #Placa="ngModel" [(ngModel)]=
+            "tipovehiculo.placa" required />
+            <small *ngIf="!Placa.valid && Placa.touched" class="invalid-feedback d-block">
+                La placa del vehiculo es erroneo
+            </small>
+
         </div>
 
        <!-- <input type="submit" value="guardar" class="btn btn-success" [disabled]="
         vehiculoForm.invalid" />-->
 
-        <button class="btn btn-info">Guardar</button>
+        <input type="submit" value="Guardar" class="btn btn-info"/>
         <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
 
     </form>
     
 </div>
+
+
+
+
