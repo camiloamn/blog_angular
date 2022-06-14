@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/user'; //importo mi modelo de usuario
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.page_title = 'Registrate';
-    this.user = new User('','','','','');//creacion del objeto
+    this.user = new User(0,'','','','');//creacion del objeto
 
   }
 
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   regresar(): any{
     this._router.navigate(['login']);
   }
-  onSubmit(form:any){
+  onSubmit(form: any){
     
     this._userService.register(this.user).subscribe(
       response => {

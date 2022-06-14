@@ -17,7 +17,7 @@
       <!--<li class="nav-item">
         <a class="nav-link" href="#">Vehiculos</a>
       </li>-->
-    </ul>
+    </ul>   
 
     <ul class="navbar-nav navbar-right" *ngIf="!identity" ><!--BARRA QUE FLOTA A LA DERECHA DE LA PANTALLA-->
       <li class="nav-item active">
@@ -54,9 +54,10 @@
 </nav><!--CERRAR BARRA DE NAVEGACION-->
 
 <!--CONTENIDO-->
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>--->
 
 <!--<login></login>-->
 <!--<register></register>-->
 <!--<tipoVehiculo></tipoVehiculo>-->
 </div><!--CERRAR CONTENEDOR PRINCIPAL-->
+<router-outlet></router-outlet><!--OBLIGATORIA para ver las rutas-->

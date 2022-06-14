@@ -35,7 +35,9 @@ export class VehiculosComponent implements OnInit {
       this.page_title = "Vehiculos";
       this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
       this.token = this._userService.getToken();//acccedo al token del usuario identificado 
-      this.vehiculo = new Vehiculos('',this.array['id']);//instancia de el objeto vacio
+      //this.vehiculo = new Vehiculos('',this.array['id']);//instancia de el objeto vacio
+      this.vehiculo = new Vehiculos(0,'',0);
+      console.log(this.vehiculo);
   }
 
   ngOnInit(): void {

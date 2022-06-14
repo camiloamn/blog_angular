@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';//sirve para hacer redirecciones
 import { UserService } from 'src/app/services/user.service';//sirve para agarrar el token y la identidad del usuario
-//import { vehiculoService } from 'src/app/services/vehiculo.service';
+import { vehiculoService } from 'src/app/services/vehiculo.service';
 import { tipoVehiculoService } from 'src/app/services/tipoVehiculo.service';
 import { Tipovehiculos } from 'src/app/models/tipovehiculos';
+import { Vehiculos } from 'src/app/models/vehiculos';
 
 
 @Component({
@@ -20,13 +21,17 @@ export class TipoVehiculoComponent implements OnInit {
   public tipovehiculo:any = Tipovehiculos;
   public status: string | undefined; 
   public array: any = [];
+  public vehiculos :any = Vehiculos;
 
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
+  
   
   constructor(
     private _route:ActivatedRoute,
     private _router: Router,
     private _userService: UserService,
-    //private _vehiculoService: vehiculoService,
+    private _vehiculoService: vehiculoService,
     private _tipoVehiculoService: tipoVehiculoService,
 
   ){
@@ -36,8 +41,9 @@ export class TipoVehiculoComponent implements OnInit {
     
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
-    this.token = this._userService.getToken();//acccedo al token del usuario identificado 
-    this.tipovehiculo = new Tipovehiculos('','','111');//instancia de el objeto vacio
+    this.token = this._userService.getToken();//acccedo al token del usuario identificado
+    //this.vehiculos = this._vehiculoService.getVehiculos();
+    this.tipovehiculo = new Tipovehiculos(0,'','',0);//instancia de el objeto vacio
 
     console.log("estos")
     this.getAll();
@@ -49,6 +55,7 @@ export class TipoVehiculoComponent implements OnInit {
   regresar(): any{
     this._router.navigate(['inicio']);
   }
+
 
   onSubmit(form:any){
     this._tipoVehiculoService.create(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
@@ -70,13 +77,23 @@ export class TipoVehiculoComponent implements OnInit {
     );
   }
   getAll(){
-    this._tipoVehiculoService.getAllVehiculos(this.token).subscribe(
+    this._tipoVehiculoService.getAllVehiculo(this.token).subscribe(
       response => {
         console.log("este!")
-        console.log(response);
+        this.vehiculos = response;
+        for (let index = 0; index < this.vehiculos.length; index++) {
+          console.log(this.vehiculos[index]['id-vehiculos']);
+          
+        }
       }
     )
+    //return this.vehiculos['id-vehiculos'];
   }
-
+  capturar() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.opcionSeleccionado;
+    console.log(this.verSeleccion)
+    
+  }
 
 }

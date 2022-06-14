@@ -14,7 +14,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.component';
 
-//importamos los modulos
+//importamos los modulos, las cosas que van a imprimir algo
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +26,7 @@ import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.
     VehiculosComponent,
     TipoVehiculoComponent,
   ],
+  // se cargan los modulos
   imports: [
     BrowserModule,
     routing,    
@@ -39,6 +40,7 @@ import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.
   providers: [
     appRoutingProviders
   ],
+  //se carga el componente principal
   bootstrap: [AppComponent]
 })
 export class AppModule { 

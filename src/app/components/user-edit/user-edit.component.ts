@@ -24,7 +24,7 @@ export class UserEditComponent implements OnInit {
     private _route: ActivatedRoute
   ){
     this.page_title= 'Ajustes de usuario';
-    this.user = new User('','','','','');
+    this.user = new User(0,'','','','');
     this.identity = this._userService.getIdentity();
     this.token= this._userService.getToken();    
     

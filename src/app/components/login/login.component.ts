@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.page_title = 'Identificate';
-    this.user = new User('', '', '', '', ''); //el objeto 
+    this.user = new User(1, '', '', '', ''); //el objeto 
     
   }
 

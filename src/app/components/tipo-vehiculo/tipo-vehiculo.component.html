@@ -17,15 +17,43 @@
     <!--FORMULARIO DE CREAR TIPO DE VEHICULOS-->
     <!--ngform es formulario de angular-->    
     <!--ngIf sirve para hacer una condicion -->
-    <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+    
+    
+    <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
         <div class="form-group">
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Escoja una clase de vehiculo</option>
-                <option value="1">Grande</option>
-                <option value="2">Mediano</option>
-                <option value="3">Pequeño</option>
+                <option selected >Escoja una clase de vehiculo</option>
+                <option *ngFor="let v of vehiculos" value={{v.id-vehiculos}}>{{v.claseVehiculo}}</option>
               </select>
-            <br>
+            <br>-->
+            
+        <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+        <div class="form-group">
+            <select class="form-select form-select-lg mb-3" #id_vehiculos="ngModel" 
+            [(ngModel)]="tipovehiculo.id_vehiculos" required aria-label=".form-select-lg example">                
+            <option *ngFor="let v of vehiculos">{{v.claseVehiculo}}</option>
+                                           
+            </select>-->
+            <!--<br>-->
+            <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+            <select [(ngModel)]="tipovehiculo.id-vehiculos" (change)="capturar()">
+                <option >Selecciona una opción</option>
+                <option *ngFor="let v of vehiculos">
+                  {{v.claseVehiculo}}
+                </option>
+            </select>
+
+            <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+            <select [(ngModel)]="tipovehiculo.id-vehiculos" (change)="capturar()">
+                <option value="0">Selecciona una opción</option>
+                <option *ngFor="let dato of vehiculos">
+                  
+                </option>
+            </select>-->
+            
+            <!-- Prueba para ver la opción seleccionado -->
+            <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p>          <br>
+
             <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
             <label for="name">Nombre</label>
               <input type="text" name="nombre" class="form-control" #nombre="ngModel" 
@@ -33,12 +61,6 @@
               <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
                     este campo es erroneo"!
               </small>
-
-     <!--       <input type="text" name="tipoVehiculos" class="form-control" #tipoVehiculos="ngModel" [(ngModel)]=
-            "tipovehicu-lo.nombre" required />
-            <small *ngIf="!tipoVehiculos.valid && tipoVehiculos.touched" class="invalid-feedback d-block">
-                El nombre del vehiculo es erroneo
-            </small>-->
             
             <label for="numPlaca">Placa</label>
             <input type="text" name="Placa" class="form-control" #Placa="ngModel" [(ngModel)]=
@@ -47,10 +69,7 @@
                 La placa del vehiculo es erroneo
             </small>
 
-        </div>
-
-       <!-- <input type="submit" value="guardar" class="btn btn-success" [disabled]="
-        vehiculoForm.invalid" />-->
+        <!--</div>-->       
 
         <input type="submit" value="Guardar" class="btn btn-info"/>
         <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
