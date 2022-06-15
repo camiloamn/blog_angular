@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';//la importo para podeder cargar formularios
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';//lo importo para utilizar ajax  
 
 import { routing, appRoutingProviders} from './app.routing';
 //import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';

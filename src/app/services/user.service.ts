@@ -1,28 +1,29 @@
+//importo todo manualmente
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from "@angular/common/http";
 import { identity, Observable } from 'rxjs';//cambie la ruta quite el identiy identity 
 import { User } from "../models/user";
-import { global } from "./global";
+import { global } from "./global";//trae la url de global.ts
 import { param } from "jquery";
 
 //definir la clase de servicios 
 @Injectable()
 export class UserService {
-    public url:string;
+    public url:string; //trae la url de global.ts 
     public token:any;
     public identity:any;
     
     constructor(
-        public _http: HttpClient
+        public _http: HttpClient// debe estar cargada obligatorio
     ){
-        this.url = global.url;
+        this.url = global.url;//trae la url de global.ts
     }
     test(){
-        //return "hola mundo";
+        //return "hola mundo lo utilizo para hacer pruebas";
     }
     //METODO DE REGISTRO
     register(user: any): Observable<any>{ // el objeto user, devuelve un observale (en donde van las respuestas del api) 
-        let json = JSON.stringify(user);// el parametro u objetoz que llega lo convierto en json string 
+        let json = JSON.stringify(user);// el parametro u objeto que llega lo convierto en json string 
         let params = 'json='+json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');//deifno las cabeceras para recibir lo de laravel  
         //console.log(params);

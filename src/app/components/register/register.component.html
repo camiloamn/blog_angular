@@ -43,11 +43,11 @@
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label for="name">Nombre</label>
-                      <input type="text" name= "name" class="form-control" #name="ngModel"
+                      <input type="text" name= "nombre" class="form-control" #nombre="ngModel"
                       [(ngModel)]="user.nombre" required pattern="[a-z A-Z]+" />
                       
 
-                      <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                      <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
                         El nombre no es valido 
                     </small>
 
@@ -58,11 +58,11 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <label for="surname">Apellidos</label>
-                      <input type="text" name="surname" class="form-control" #surname="ngModel"
+                      <label for="apellidos">Apellidos</label>
+                      <input type="text" name="apellidos" class="form-control" #apellidos="ngModel"
                       [(ngModel)]="user.apellidos" required pattern="[a-z A-Z]+"/>                      
 
-                      <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+                      <small *ngIf="!apellidos.valid && apellidos.touched" class="invalid-feedback d-block">
                         El apellido no es valido 
                     </small>
 

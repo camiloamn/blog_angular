@@ -13,10 +13,11 @@ import { DatePipe } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   public page_title: String;
+  public idid:any;
   public user: User;//hacemos publica la propiedad
   public status: any; //creo la propiedad
   public token: any;
-  public identity: any;
+  public identity: any;//propiedad identity esta con el la identidad del usuario identificado
   public v:any = true;
   today: Date = new Date();
   hora = new DatePipe('en-US');
@@ -28,16 +29,17 @@ export class LoginComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.page_title = 'Identificate';
-    this.user = new User(1, '', '', '', ''); //el objeto 
-    
+    this.user = new User(this.idid,'','','','');//creacion del objeto
+        
   }
 
   ngOnInit(): void {
     //SE EJECUTA SIEMPRE Y CIERRA SESION SOLO CUANDO LE LLEGA EL PARAMETRO SURE POR LA URL
     this.logout();
-    this.todayWithPipe = this.hora.transform(Date.now(),'h:mm a');
+    this.todayWithPipe = this.hora.transform(Date.now(),'h:mm a');//formato a la hora que aparce en el login
   }
 
+  //metodo para el boton de crear usuario en el login
   goRegister(): any{
      //routerLink:'/register';
      this._router.navigate(['registro']);

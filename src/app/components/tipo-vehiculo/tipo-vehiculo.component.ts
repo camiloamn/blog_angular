@@ -16,6 +16,8 @@ import { Vehiculos } from 'src/app/models/vehiculos';
 export class TipoVehiculoComponent implements OnInit {
   //CREAR LAS PROPIEDADES
   public page_title: String;
+  public idid: any;
+  //public idV : id
   public identity: any;
   public token: any;
   public tipovehiculo:any = Tipovehiculos;
@@ -43,7 +45,7 @@ export class TipoVehiculoComponent implements OnInit {
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
     //this.vehiculos = this._vehiculoService.getVehiculos();
-    this.tipovehiculo = new Tipovehiculos(0,'','',0);//instancia de el objeto vacio
+    this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
 
     console.log("estos")
     this.getAll();
