@@ -38,14 +38,14 @@ export class VehiculosComponent implements OnInit {
       //this.vehiculo = new Vehiculos('',this.array['id']);//instancia de el objeto vacio
       this.vehiculo = new Vehiculos(0,'',this.array['id']);
       console.log(Vehiculos);
+      
   }
 
   ngOnInit(): void {
-    //console.log('Componente de resgitro lanzado!!');
-    //console.log(this._userService.test());
-
-  }  
-
+    console.log('Componente de resgitro lanzado!!');
+    console.log(this._userService.test());
+  }
+  
   regresar(): any{
     this._router.navigate(['inicio']);
   }

@@ -11,7 +11,7 @@ import { Vehiculos } from 'src/app/models/vehiculos';
   selector: 'tipo-vehiculo',
   templateUrl: './tipo-vehiculo.component.html',
   styleUrls: ['./tipo-vehiculo.component.css'],
-  providers: [UserService, tipoVehiculoService ]
+  providers: [UserService, vehiculoService] //tipoVehiculoService,
 })
 export class TipoVehiculoComponent implements OnInit {
   //CREAR LAS PROPIEDADES
@@ -21,6 +21,7 @@ export class TipoVehiculoComponent implements OnInit {
   public identity: any;
   public token: any;
   public tipovehiculo:any = Tipovehiculos;
+  public tVehiculos:any;
   public status: string | undefined; 
   public array: any = [];
   public vehiculos :any = Vehiculos;
@@ -34,10 +35,10 @@ export class TipoVehiculoComponent implements OnInit {
     private _router: Router,
     private _userService: UserService,
     private _vehiculoService: vehiculoService,
-    private _tipoVehiculoService: tipoVehiculoService,
-
+    //private _tipoVehiculoService: tipoVehiculoService,
   ){
-    this.array= JSON.parse(localStorage.getItem('identity')+'');//traigo el id de usuario como json y lo convierto en array es como traer el usuario del momento 
+    this.getAll();
+    //this.array= JSON.parse(localStorage.getItem('identity')+'');//traigo el id de usuario como json y lo convierto en array es como traer el usuario del momento 
     
     //darle valor a las propiedades
     
@@ -45,13 +46,16 @@ export class TipoVehiculoComponent implements OnInit {
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
     //this.vehiculos = this._vehiculoService.getVehiculos();
-    this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
+    //this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
 
-    console.log("estos")
-    this.getAll();
+    //console.log("estos")
+    //this.getAll();
   }
 
   ngOnInit(): void {
+    
+    this.tipovehiculo = new Tipovehiculos(0,'','',0);
+    //console.log(this.tipovehiculo);
   }
 
   regresar(): any{
@@ -60,7 +64,7 @@ export class TipoVehiculoComponent implements OnInit {
 
 
   onSubmit(form:any){
-    this._tipoVehiculoService.create(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
+    this._vehiculoService.create(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
         if(response.status == "success"){//si la respuesta es correcta
           this.tipovehiculo = response.tipoVehiculo;
@@ -77,18 +81,28 @@ export class TipoVehiculoComponent implements OnInit {
         console.log(<any>error)
       }
     );
+      
   }
+
+  
   getAll(){
-    this._tipoVehiculoService.getAllVehiculo(this.token).subscribe(
+
+    this._vehiculoService.getVehiculos().subscribe(
       response => {
-        console.log("este!")
-        this.vehiculos = response;
-        for (let index = 0; index < this.vehiculos.length; index++) {
-          console.log(this.vehiculos[index]['id-vehiculos']);
-          
+        //console.log("este!")
+        if(response.status == 'success'){
+          this.tVehiculos = response.tVehiculos;
+          console.log(':):):):):)')
+          console.log(this.tVehiculos);
         }
+        
+          
+        },
+        error => {
+        console.log('errrrrrrrrrrrrrrrrrrrrrrroroorr')
+         console.log(error);
       }
-    )
+    );
     //return this.vehiculos['id-vehiculos'];
   }
   capturar() {
@@ -99,3 +113,18 @@ export class TipoVehiculoComponent implements OnInit {
   }
 
 }
+
+
+/*getAll(){
+    this._vehiculoService.getAllVehiculo(this.token).subscribe(
+      response => {
+        console.log("este!")
+        this.vehiculos = response;
+        for (let index = 0; index < this.vehiculos.length; index++) {
+          console.log(this.vehiculos[index]['id-vehiculos']);
+          
+        }
+      }
+    )
+    //return this.vehiculos['id-vehiculos'];
+  }*/

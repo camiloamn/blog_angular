@@ -19,7 +19,7 @@ export class vehiculoService {
     ){
         this.url = global.url;
     }
-    //metodo que nos permite crear una nueva clase de vehiculo
+    //metodo que nos permite crear guardar una nueva clase de vehiculo
     create(token:any, vehiculo:any):Observable<any>{
         let json = JSON.stringify(vehiculo);//la convierto en un json string
         let params = "json="+json;//defino la variable params y los datos qu ele paso por post
@@ -34,6 +34,6 @@ export class vehiculoService {
     getVehiculos():Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         //metodo que ya lo voy a poder utilizar en la app.component.ts ya que es la vista del menu y es le componente padre 
-     return this._http.get(this.url + 'vehiculo', {headers: headers});
+     return this._http.post(this.url + 'index', {headers: headers});
     }
-}
+}   

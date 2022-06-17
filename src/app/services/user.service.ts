@@ -41,7 +41,7 @@ export class UserService {
         return this._http.post(this.url+'user/login', params, {headers:headers});//hago peticion ajax tener en cuneta la ruta de la acccion a relaizar
         
     }
-
+    //actualizar los datos del usuario
     update(token:any, user:any):Observable<any>{
         let json = JSON.stringify(user);//convierto los datos en un json string 
         let params = "json="+json;

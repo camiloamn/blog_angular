@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     {path: '', component: LoginComponent},//esta es la pagina de arranque 
     {path: 'inicio', component: HomeComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'logout/:sure', component: LoginComponent},
+    {path: 'logout/:sure', component: LoginComponent},//ruta para salir
     {path: 'registro', component:RegisterComponent},
     {path: 'ajustes', component:UserEditComponent},
     {path: 'crear-vehiculo', component:VehiculosComponent},

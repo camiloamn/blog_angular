@@ -38,15 +38,15 @@ export class tipoVehiculoService {
         getTipoVehiculos():Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         //metodo que ya lo voy a poder utilizar en la app.component.ts ya que es la vista del menu y es le componente padre 
-        return this._http.get(this.url + 'tipo/store', {headers: headers});
+        return this._http.post(this.url + 'tipo/index', {headers: headers});
     }
-    getAllVehiculo(token:any):Observable<any>{
+       /* getAllVehiculo(token:any):Observable<any>{
         
-/*      let json = JSON.stringify({'':''}); */
+       /*      let json = JSON.stringify({'':''}); 
         let params = 'json={"as":"1"}';
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');//.set('Authorization',token);                         
         //console.log(params+'aqui esta el error');
         return this._http.post(this.url+'tipo/getAllVehiculo', params, {headers: headers});//peticion ajax
 
-    }
+    }*/
 }

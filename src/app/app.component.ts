@@ -18,6 +18,7 @@
       public token: any;
       public url:any
       public vehicles:any;
+      public tipvehicles:any;
 
       constructor(
          private route: ActivatedRoute,
@@ -27,14 +28,18 @@
          private _tipoVehiculoService:tipoVehiculoService,)
          {    
         this.loadUser();
+        //this.getVehiculos();
+        //this.getTipoVehiculos();
       }
       //creo los metodos 
-      ngOnInit(): void {//cierran sesion juntos
+      //cierran sesion juntos
+      ngOnInit(): void {
         console.log('web app cargada correctamente :)');
         this.getVehiculos();
+        this.getTipoVehiculos();      
       }
       ngDoCheck(): void {//cierran sesion juntos
-        this.loadUser();
+        this.loadUser();//metodo loaduser 
       }
       loadUser(){        
         
@@ -45,23 +50,29 @@
         console.log(this.identity);
       }
 
+      //instancia del metodo de listar vehiculos
       getVehiculos(){
+        //console.log('qqqqqqqqqqqqqqq')
         this._vehiculoService.getVehiculos().subscribe(
-          Response => {
-            if(Response == 'success'){
-              this.vehicles = Response.vehicles
+          response => {
+
+            if(response == 'success'){
+              this.vehicles = response.vehicles
+              //console.log('aaaaaaaaaaaaa')           
+              //console.log(this.vehicles);
             }
           },
           error => {
-            console.log(error);
+            console.log(error);          
           }
         );
       }
+      //instancia del metodo de listar vehiculos
       getTipoVehiculos(){
         this._tipoVehiculoService.getTipoVehiculos().subscribe(
           Response => {
             if(Response == 'success'){
-              this.vehicles = Response.vehicles
+              this.tipvehicles = Response.tipvehicles
             }
           },
           error => {

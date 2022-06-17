@@ -46,18 +46,25 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    this._userService.signup(this.user).subscribe(
+    this._userService.signup(this.user).subscribe(//me permite ver el token si no le paso le segundo parametro true
       response => {
-        //TOKEN
+        //console.log('esssss aquiiiiiii');
+        //console.log(response);
+        
+        //me devuelve el TOKEN
         if (response.status != 'error') {
           this.status = 'success';
           this.token = response;
+          //console.log('yyyyy  esssss aquiiiiiii : )');
+          //console.log(response);
 
           //OBJETO USUARIO IDENTIFCADO
-          this._userService.signup(this.user, this.v).subscribe(
+          this._userService.signup(this.user, this.v).subscribe(//con el this.v "que es true" me permite ver los datos del usuario , los datos que  traen el token
             response => {
-              //console.log("esteeee!");
-              console.log(response);
+              this.identity = response;
+              //console.log('tokennnn y datossss');  
+              //console.log(this.token);
+              //console.log(this.identity);
 
               if(response.status != 'Error'){
                 this.identity = response;
@@ -95,6 +102,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  //metodo para cerrar sesion
   logout() {
     this._route.params.subscribe(params => {
       let logout = +params['sure'];
@@ -106,7 +114,7 @@ export class LoginComponent implements OnInit {
         this.identity = null;
         this.token = null;
 
-        //REDIRECCION A INICIO 
+        //REDIRECCION A login cuando acciono salir 
         this._router.navigate(['login']);
       }
 
