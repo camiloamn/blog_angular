@@ -53,7 +53,7 @@
       //instancia del metodo de listar vehiculos
       getVehiculos(){
         //console.log('qqqqqqqqqqqqqqq')
-        this._vehiculoService.getVehiculos().subscribe(
+        this._vehiculoService.getVehiculos(this.token).subscribe(
           response => {
 
             if(response == 'success'){

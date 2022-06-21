@@ -11,7 +11,7 @@ import { Vehiculos } from 'src/app/models/vehiculos';
   selector: 'tipo-vehiculo',
   templateUrl: './tipo-vehiculo.component.html',
   styleUrls: ['./tipo-vehiculo.component.css'],
-  providers: [UserService, vehiculoService] //tipoVehiculoService,
+  providers: [UserService, vehiculoService, tipoVehiculoService] //tipoVehiculoService,
 })
 export class TipoVehiculoComponent implements OnInit {
   //CREAR LAS PROPIEDADES
@@ -35,9 +35,9 @@ export class TipoVehiculoComponent implements OnInit {
     private _router: Router,
     private _userService: UserService,
     private _vehiculoService: vehiculoService,
-    //private _tipoVehiculoService: tipoVehiculoService,
+    private _tipoVehiculo: tipoVehiculoService,
   ){
-    this.getAll();
+    //this.getAll();
     //this.array= JSON.parse(localStorage.getItem('identity')+'');//traigo el id de usuario como json y lo convierto en array es como traer el usuario del momento 
     
     //darle valor a las propiedades
@@ -45,7 +45,13 @@ export class TipoVehiculoComponent implements OnInit {
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
-    //this.vehiculos = this._vehiculoService.getVehiculos();
+    this.vehiculos = this._vehiculoService.getVehiculos({}).subscribe(
+      response=>{
+        console.log("respuestaaa")
+        console.log(response)
+
+      }
+    )
     //this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
 
     //console.log("estos")
@@ -87,7 +93,7 @@ export class TipoVehiculoComponent implements OnInit {
   
   getAll(){
 
-    this._vehiculoService.getVehiculos().subscribe(
+    this._tipoVehiculo.getAllVehiculo({}).subscribe(
       response => {
         //console.log("este!")
         if(response.status == 'success'){
