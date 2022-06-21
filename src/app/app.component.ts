@@ -35,7 +35,7 @@
       //cierran sesion juntos
       ngOnInit(): void {
         console.log('web app cargada correctamente :)');
-        this.getVehiculos();
+        //this.getVehiculos();
         this.getTipoVehiculos();      
       }
       ngDoCheck(): void {//cierran sesion juntos
@@ -51,7 +51,7 @@
       }
 
       //instancia del metodo de listar vehiculos
-      getVehiculos(){
+/*       getVehiculos(){
         //console.log('qqqqqqqqqqqqqqq')
         this._vehiculoService.getVehiculos(this.token).subscribe(
           response => {
@@ -66,7 +66,7 @@
             console.log(error);          
           }
         );
-      }
+      } */
       //instancia del metodo de listar vehiculos
       getTipoVehiculos(){
         this._tipoVehiculoService.getTipoVehiculos().subscribe(

@@ -1,83 +1,99 @@
-
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
-    <p *ngIf="status != 'success'">       
-        Crea un nuevo tipo de vehiculo 
+    <p *ngIf="status != 'success'">
+        Crea un nuevo tipo de vehiculo
     </p>
-    <hr/><!--LINEA DIVISORIA-->
+    <hr />
+    <!--LINEA DIVISORIA-->
 
-     <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
-        El vehiculo se ha creado correctamente !! 
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El vehiculo se ha creado correctamente !!
     </div>
-    
+
     <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
-        El vehiculo no se ha guardado !!!                                                                                                
-    </div> 
+        El vehiculo no se ha guardado !!!
+    </div>
 
     <!--FORMULARIO DE CREAR TIPO DE VEHICULOS-->
-    <!--ngform es formulario de angular-->    
+    <!--ngform es formulario de angular-->
     <!--ngIf sirve para hacer una condicion -->
-    
-    
-    <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+<!-- 
+
+    <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
         <div class="form-group">
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option selected >Escoja una clase de vehiculo</option>
                 <option *ngFor="let v of vehiculos" value={{v.id-vehiculos}}>{{v.claseVehiculo}}</option>
               </select>
-            <br>-->
-            
-        <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+            <br> -->
+ 
+    <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
         <div class="form-group">
             <select class="form-select form-select-lg mb-3" #id_vehiculos="ngModel" 
             [(ngModel)]="tipovehiculo.id_vehiculos" required aria-label=".form-select-lg example">                
             <option *ngFor="let v of vehiculos">{{v.claseVehiculo}}</option>
                                            
-            </select>-->
-            <!--<br>-->
-            <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
-            <select [(ngModel)]="tipovehiculo.id-vehiculos" (change)="capturar()">
-                <option >Selecciona una opción</option>
-                <option *ngFor="let v of vehiculos">
-                  {{v.claseVehiculo}}
-                </option>
             </select>
+    <!--<br>-->
 
-            <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
+    <!-- prueba antes de video -->
+    <!-- <form class="col-md-5" #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)">
+
+        <select [(ngModel)]="tipovehiculo.id-vehiculos" name="tipoVehiculoForm" (change)="capturar()">
+            <div class="form-group">
+                <option>Selecciona una opción</option>
+                <option *ngFor="let v of vehiculos">
+                    {{v.claseVehiculo}}
+                </option>
+            </div>
+
+        </select>
+
+ -->
+        <!-- prueba video -->
+        <!-- <div class="form-group">
+            <label for="id_vehiculos">seleccione una opcion</label>
+            <select name="id-vehiculos" #id_vehiculos="ngModel" [(ngModel)]="tipovehiculo.id-vehiculos" 
+            class="form-control">
+            <option *ngFor="let v of vehiculos" value="{{v.claseVehiculo}}">
+                {{v.claseVehiculo}}            
+        </option>
+        </select>
+        </div>
+ -->
+        <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
             <select [(ngModel)]="tipovehiculo.id-vehiculos" (change)="capturar()">
                 <option value="0">Selecciona una opción</option>
                 <option *ngFor="let dato of vehiculos">
                   
                 </option>
             </select>-->
-            
-            <!-- Prueba para ver la opción seleccionado -->
-            <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p><br>
 
-            <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
-            <label for="name">Nombre</label>
-              <input type="text" name="nombre" class="form-control" #nombre="ngModel" 
-              [(ngModel)]="tipovehiculo.nombre" required>
-              <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
-                    este campo es erroneo"!
-              </small>
-            
-            <label for="numPlaca">Placa</label>
-            <input type="text" name="Placa" class="form-control" #Placa="ngModel" [(ngModel)]=
-            "tipovehiculo.placa" required />
-            <small *ngIf="!Placa.valid && Placa.touched" class="invalid-feedback d-block">
-                La placa del vehiculo es erroneo
+        <!-- Prueba para ver la opción seleccionado -->
+        <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p><br>
+
+        <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tipovehiculo.nombre"
+                class="form-control" required/>
+            <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
+            este campo es erroneo"!
             </small>
+        </div>
 
-        <!--</div>-->       
+        <label for="numPlaca">Placa</label>
+        <input type="text" name="Placa" class="form-control" #Placa="ngModel" [(ngModel)]="tipovehiculo.placa"
+            required />
+        <small *ngIf="!Placa.valid && Placa.touched" class="invalid-feedback d-block">
+            La placa del vehiculo es erronea!
+        </small>
 
-        <input type="submit" value="Guardar" class="btn btn-info"/>
-        <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
+        <!--</div>-->
+
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <input type="button" value="Regresar" class="btn btn-primary" (click)="regresar()">
 
     </form>
-    
+
 </div>
-
-
-
-

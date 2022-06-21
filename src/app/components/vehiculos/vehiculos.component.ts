@@ -19,7 +19,7 @@ export class VehiculosComponent implements OnInit {
   public token: any;
   public vehiculo: any = Vehiculos; //objeto que va a estar rellenando el formulario de vehiculos
   public status: string | undefined;
-  public array: any = [];
+  public array:any=[];
 
   constructor(
     private _route: ActivatedRoute,
@@ -39,13 +39,12 @@ export class VehiculosComponent implements OnInit {
     this.vehiculo = new Vehiculos(0, '', this.array['id']);
     console.log(Vehiculos);
 
-
   }
 
   ngOnInit(): void {
     console.log('Componente de resgitro lanzado!!');
     console.log(this._userService.test());
-    this._vehiculoService.getVehiculos({}).subscribe(
+/*     this._vehiculoService.getVehiculos({}).subscribe(
       
       response => {
         console.log("datos!!!!!");
@@ -57,7 +56,7 @@ export class VehiculosComponent implements OnInit {
         }
 
       }
-    )
+    ) */
   }
 
   regresar(): any {

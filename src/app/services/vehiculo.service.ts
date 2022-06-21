@@ -31,11 +31,12 @@ export class vehiculoService {
 
     }
     //metodo que nos permite listar los vehiculos
-    getVehiculos(datos: any): Observable<any> {
+    /*getVehiculos(datos: any): Observable<any> {
         let json = JSON.stringify(datos);
         let params = "json="+json;
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         //metodo que ya lo voy a poder utilizar en la app.component.ts ya que es la vista del menu y es le componente padre 
-        return this._http.post(this.url + 'index', params, { headers: headers });
-    }
+        return this._http.post(this.url + '', params, { headers: headers });
+    }*/
+    
 }   
