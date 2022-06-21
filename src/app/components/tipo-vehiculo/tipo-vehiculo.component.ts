@@ -45,7 +45,7 @@ export class TipoVehiculoComponent implements OnInit {
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
-    this.vehiculos = this._vehiculoService.getVehiculos({}).subscribe(
+    this.vehiculos = this._tipoVehiculo.getAllVehiculo({}).subscribe(
       response=>{
         console.log("respuestaaa")
         console.log(response)
@@ -91,7 +91,7 @@ export class TipoVehiculoComponent implements OnInit {
   }
 
   
-  getAll(){
+  /*getAll(){
 
     this._tipoVehiculo.getAllVehiculo({}).subscribe(
       response => {
@@ -110,7 +110,7 @@ export class TipoVehiculoComponent implements OnInit {
       }
     );
     //return this.vehiculos['id-vehiculos'];
-  }
+  }*/
   capturar() {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.verSeleccion = this.opcionSeleccionado;
