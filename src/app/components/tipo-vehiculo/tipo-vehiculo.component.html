@@ -6,14 +6,14 @@
     <hr />
     <!--LINEA DIVISORIA-->
 
-    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+     <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
         El vehiculo se ha creado correctamente !!
     </div>
 
     <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
         El vehiculo no se ha guardado !!!
     </div>
-
+ 
     <!--FORMULARIO DE CREAR TIPO DE VEHICULOS-->
     <!--ngform es formulario de angular-->
     <!--ngIf sirve para hacer una condicion -->
@@ -26,14 +26,14 @@
                 <option *ngFor="let v of vehiculos" value={{v.id-vehiculos}}>{{v.claseVehiculo}}</option>
               </select>
             <br> -->
- 
+ <!-- 
     <form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
         <div class="form-group">
             <select class="form-select form-select-lg mb-3" #id_vehiculos="ngModel" 
             [(ngModel)]="tipovehiculo.id_vehiculos" required aria-label=".form-select-lg example">                
             <option *ngFor="let v of vehiculos">{{v.claseVehiculo}}</option>
                                            
-            </select>
+            </select> -->
     <!--<br>-->
 
     <!-- prueba antes de video -->
@@ -51,16 +51,17 @@
 
  -->
         <!-- prueba video -->
-        <!-- <div class="form-group">
+         <div class="form-group">
             <label for="id_vehiculos">seleccione una opcion</label>
-            <select name="id-vehiculos" #id_vehiculos="ngModel" [(ngModel)]="tipovehiculo.id-vehiculos" 
+            <select (change)="capturar()" name="id_vehiculos" #id_vehiculos="ngModel" [(ngModel)]="tipovehiculo.id-vehiculos" 
             class="form-control">
             <option *ngFor="let v of vehiculos" value="{{v.claseVehiculo}}">
                 {{v.claseVehiculo}}            
         </option>
         </select>
         </div>
- -->
+    
+ 
         <!--<form #tipoVehiculoForm="ngForm" (ngSubmit)="onSubmit(tipoVehiculoForm)" class="col-md-5">
             <select [(ngModel)]="tipovehiculo.id-vehiculos" (change)="capturar()">
                 <option value="0">Selecciona una opción</option>
@@ -70,7 +71,8 @@
             </select>-->
 
         <!-- Prueba para ver la opción seleccionado -->
-        <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p><br>
+        <!-- <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p> -->
+        <br>
 
         <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
         <div class="form-group">
@@ -94,6 +96,6 @@
         <input type="submit" value="Guardar" class="btn btn-info" />
         <input type="button" value="Regresar" class="btn btn-primary" (click)="regresar()">
 
-    </form>
+    <!-- </form> -->
 
 </div>

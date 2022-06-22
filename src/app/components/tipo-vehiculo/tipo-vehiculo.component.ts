@@ -19,15 +19,17 @@ import { NgForm } from '@angular/forms';//agrgee esto nuevo
 export class TipoVehiculoComponent implements OnInit {
   //CREAR LAS PROPIEDADES
   public page_title: String;
-  public idid: any;
+  //public idid: any;
   //public idV : id
   public identity: any;
   public token: any;
-  public tipovehiculo:any = Tipovehiculos;
+  public tipovehiculo: any = Tipovehiculos;
   public tVehiculos:any;
   public status: string | undefined; 
-  public array: any=[];
+  //public array: any=[];
   public vehiculos :any = Vehiculos;
+  //public vehiculos :any = Vehiculos;
+  //public data:any=[];
 
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = '';
@@ -48,13 +50,23 @@ export class TipoVehiculoComponent implements OnInit {
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
-    this.vehiculos = this._tipoVehiculoService.getAllVehiculo({}).subscribe(//trae propiedades de vehiculo
-      response=>{
-        console.log("respuestaaa")
-        console.log(response)
+    this._tipoVehiculoService.getAllVehiculo({}).subscribe(//trae propiedades de vehiculo
+        
+    response=>{
+        //if(response.status == 'success')
+          //this.data = Object.values(this.vehiculos);
+          this.vehiculos = response;
+          console.log("respuestaaa");       
+          console.log(this.vehiculos);        
 
       }
-    )
+    );
+
+    /* objectKeys: (this.vehiculos){
+      const keys = Object.keys(this.vehiculos);
+      console.log(keys); // echa un vistazo por consola para que veas lo que hace "Object.keys"
+      return keys;  */ 
+
     //this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
 
     //console.log("estos")
@@ -63,7 +75,7 @@ export class TipoVehiculoComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.tipovehiculo = new Tipovehiculos(0,'','',0);
+    this.tipovehiculo = new Tipovehiculos('','',0);
     //console.log(this.tipovehiculo);
   }
 
@@ -92,7 +104,6 @@ export class TipoVehiculoComponent implements OnInit {
     );
       
   }
-
   
   /*getAll(){
 
@@ -123,7 +134,6 @@ export class TipoVehiculoComponent implements OnInit {
   }
 
 }
-
 
 /*getAll(){
     this._vehiculoService.getAllVehiculo(this.token).subscribe(
