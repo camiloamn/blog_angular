@@ -13,7 +13,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.component';
-import { EjemploComponent } from './ejemplo/ejemplo.component';
+//import { EjemploComponent } from './ejemplo/ejemplo.component';
 
 //importamos los modulos, las cosas que van a imprimir algo
 @NgModule({
@@ -26,7 +26,7 @@ import { EjemploComponent } from './ejemplo/ejemplo.component';
     UserEditComponent,
     VehiculosComponent,
     TipoVehiculoComponent,
-    EjemploComponent,
+    //EjemploComponent,
   ],
   // se cargan los modulos
   imports: [

@@ -1,9 +1,10 @@
-<div class="col-md-12 mt-3">
+  <div class="container py-3 h-100">
+    
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">       
-        Crea un vehiculo 
+        ( Crea un nuevo vehiculo ) 
     </p>
-    <hr/><!--LINEA DIVISORIA-->
+    <hr/> <!--LINEA DIVISORIA-->
 
      <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
         El vehiculo se ha creado correctamente !! 
@@ -11,38 +12,22 @@
     
     <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
         El vehiculo no se ha guardado !!!                                                                                                
-    </div> 
-
+    </div>
     <!--FORMULARIO DE CREAR CLASE DE VEHICULOS-->
     <!--ngform es formulario de angular-->    
     <!--ngIf sirve para hacer una condicion -->
-    <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="col-md-5">
+    <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="py-1 h-100 col-md-7">
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" name="claseVehiculo" class="form-control" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required />
+            <input type="text" name="claseVehiculo" class="form-control" placeholder="Esciba el nombre del vehiculo" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required />
             <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
                 El nombre del vehiculo es erroneo
             </small>            
         </div>
-
-       <!-- <input type="submit" value="guardar" class="btn btn-success" [disabled]="
-        vehiculoForm.invalid" />-->
-
+        
         <input type="submit" value="Guardar" class="btn btn-info"/>
         <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
 
     </form>
     
 </div>
-
-<!--
-<div>
-            <label for="id-vehiculos">vehiculos</label>
-            <select name="id-vehiculos" #tipoVehiculoForm="ngModel" [(ngModel)]= "tipovehiculo.id-vehiculos" 
-            class="form-control">            
-            <option *ngFor="let v of vehiculos" value="{{v.claseVehiculo}}">
-                {{vehiculos.name}}
-            </option>   
-            </select>    
-
--->

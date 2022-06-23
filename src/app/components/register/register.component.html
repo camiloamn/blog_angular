@@ -32,7 +32,6 @@
                       <input type="text" name="id" class="form-control" #id="ngModel"
                       [(ngModel)]="user.id" required pattern="[0-9]+" />
                       
-
                       <small *ngIf="!id.valid && id.touched" class="invalid-feedback d-block">
                         La identificación no es valida 
                     </small>

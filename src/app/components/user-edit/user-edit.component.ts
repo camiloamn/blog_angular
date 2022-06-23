@@ -43,7 +43,7 @@ export class UserEditComponent implements OnInit {
   }
 
   regresar(): any{
-    this._router.navigate(['login']);
+    this._router.navigate(['inicio']);
   }
 
   onSubmit(form:any){

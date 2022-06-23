@@ -1,7 +1,7 @@
-<div class="col-md-12 mt-3">
+<div class="container py-3 h-100">
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">       
-        Modifica tus datos personales de usuario
+        Modifica tus datos personales 
     </p>
     <hr/><!--LINEA DIVISORIA-->
 
@@ -87,9 +87,14 @@
         </div>
         
         <div class="d-flex justify-content-end pt-3">          
-            <input type="submit" value="Guardar cambios" class="btn btn-success" [disabled]=
+            <!-- <input type="submit" value="Guardar cambios" class="btn btn-success" [disabled]=
             "userEditForm.invalid"/>
             <input type="button" value="Regresar" class="btn btn-warning" (click)= "regresar()">                     
+ -->
+            <input type="submit" value="Guardar" class="btn btn-info"/>
+            <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">
+
+
 
           </div>   
        

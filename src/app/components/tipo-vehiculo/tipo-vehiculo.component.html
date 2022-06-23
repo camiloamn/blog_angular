@@ -1,7 +1,7 @@
-<div class="col-md-12 mt-3">
+<div class="container py-3 h-100">
     <h1>{{page_title}}</h1>
     <p *ngIf="status != 'success'">
-        Crea un nuevo tipo de vehiculo
+        ( Crea un nuevo tipo de vehiculo )
     </p>
     <hr />
     <!--LINEA DIVISORIA-->
@@ -19,19 +19,19 @@
     <!--ngIf sirve para hacer una condicion si es el nombre y si toca el nombre -->
     <!-- <br> -->
     
-    <form #tipoVehiculo="ngForm" (ngSubmit)="onSubmit(tipoVehiculo)" class="col-md-5">
+    <form #tipoVehiculo="ngForm" (ngSubmit)="onSubmit(tipoVehiculo)" class="py-1 h-100 col-md-7">
 
         <div class="form-group">
             <label for="id_vehiculos">seleccione una opcion</label>
             <select (change)="capturar()" name="id_vehiculos" #id_vehiculos="ngModel"
                 [(ngModel)]="tipovehiculo.id_vehiculos" class="form-control">
                 <option *ngFor="let v of vehiculos" value="{{v.id_vehiculos}}">
-                    {{v.id_vehiculos}}-{{v.claseVehiculo}}
+                    {{v.id_vehiculos}} - {{v.claseVehiculo}}
                 </option>
             </select>
         </div>
         
-        <br>
+        
         <!--A LA AVRIABLE tipovehiculo.nombre agregele el nombre-->
         <div class="form-group">
             <label for="nombre">Nombre</label>
