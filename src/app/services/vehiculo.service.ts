@@ -20,7 +20,7 @@ export class vehiculoService {
         this.url = global.url;
     }
     //metodo que nos permite crear guardar una nueva clase de vehiculo
-    create(token: any, vehiculo: any): Observable<any> {
+    store(token: any, vehiculo: any): Observable<any> {
         let json = JSON.stringify(vehiculo);//la convierto en un json string
         let params = "json=" + json;//defino la variable params y los datos qu ele paso por post
 

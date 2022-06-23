@@ -23,11 +23,12 @@ export class TipoVehiculoComponent implements OnInit {
   //public idV : id
   public identity: any;
   public token: any;
-  public tipovehiculo: any = Tipovehiculos;
+  public tipovehiculo: Tipovehiculos;
   public tVehiculos:any;
-  public status: string | undefined; 
+  public status: string | undefined;
+  //public route: any;
   //public array: any=[];
-  public vehiculos :any = Vehiculos;
+  public vehiculos:any;
   //public vehiculos :any = Vehiculos;
   //public data:any=[];
 
@@ -46,7 +47,7 @@ export class TipoVehiculoComponent implements OnInit {
     //this.array= JSON.parse(localStorage.getItem('identity')+'');//traigo el id de usuario como json y lo convierto en array es como traer el usuario del momento 
     
     //darle valor a las propiedades
-    
+    this.tipovehiculo = new Tipovehiculos(0,'','',0);
     this.page_title = 'bienvenidos a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
@@ -75,7 +76,7 @@ export class TipoVehiculoComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.tipovehiculo = new Tipovehiculos('','',0);
+    
     //console.log(this.tipovehiculo);
   }
 
@@ -85,14 +86,15 @@ export class TipoVehiculoComponent implements OnInit {
 
 
   onSubmit(form:any){
-    this._vehiculoService.create(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
+    this._tipoVehiculoService.store(this.token, this.tipovehiculo).subscribe(//utilizar el metodo create
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
         if(response.status == "success"){//si la respuesta es correcta
           this.tipovehiculo = response.tipoVehiculo;
           this.status = 'success';
-
-          this._router.navigate(['tipo-vehiculos']);//redireccion  a la pagina de inicio 
           form.reset();
+          //this._router.navigate(['tipo-vehiculos']);
+          location.reload();//redireccion  a la pagina de inicio 
+          
         }else{
           this.status = 'error';
         }
@@ -100,6 +102,8 @@ export class TipoVehiculoComponent implements OnInit {
       error => {
         this.status = 'error';//me regresa el error 
         console.log(<any>error)
+        form.reset();
+          this._router.navigate(['tipo-vehiculos']);
       }
     );
       
@@ -129,7 +133,7 @@ export class TipoVehiculoComponent implements OnInit {
 
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.verSeleccion = this.opcionSeleccionado;
-    console.log(this.verSeleccion)
+   /*  console.log(this.verSeleccion) */
     
   }
 
