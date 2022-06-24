@@ -4,6 +4,8 @@
     import { tipoVehiculoService } from './services/tipoVehiculo.service';
     import { ActivatedRoute } from '@angular/router';
     import { Router } from '@angular/router';
+import { Vehiculos } from './models/vehiculos';
+import { Tipovehiculos } from './models/tipovehiculos';
     
 
     @Component({
@@ -19,6 +21,8 @@
       public url:any
       public vehicles:any;
       public tipvehicles:any;
+      public vehiculos=Vehiculos;
+      public tipovehiculos= Tipovehiculos;
 
       constructor(
          private route: ActivatedRoute,

@@ -10,7 +10,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from "./components/user-edit/user-edit.component";
 import { VehiculosComponent } from "./components/vehiculos/vehiculos.component";
 import { TipoVehiculoComponent } from "./components/tipo-vehiculo/tipo-vehiculo.component"; 
-//import { EjemploComponent } from "./ejemplo/ejemplo.component";
+import { ListaVeComponent } from "./components/lista-ve/lista-ve.component";
+
 //DEFINIR LAS RUTAS en un array con los objetos json 
 const appRoutes: Routes = [
     {path: '', component: LoginComponent},//esta es la pagina de arranque 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     {path: 'registro', component:RegisterComponent},
     {path: 'ajustes', component:UserEditComponent},
     {path: 'crear-vehiculo', component:VehiculosComponent},
-    //{path: 'ejemplo', component:EjemploComponent},
+    {path: 'lista-vehiculo', component:ListaVeComponent},
     {path: 'tipo-vehiculos', component:TipoVehiculoComponent},
     {path: '**', component: ErrorComponent}
 ];

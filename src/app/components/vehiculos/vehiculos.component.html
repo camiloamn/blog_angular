@@ -19,7 +19,7 @@
     <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="py-1 h-100 col-md-7">
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" name="claseVehiculo" class="form-control" placeholder="Esciba el nombre del vehiculo" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required />
+        <input type="text" name="claseVehiculo" class="form-control" placeholder="Esciba el nombre del vehiculo" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required>
             <small *ngIf="!claseVehiculo.valid && claseVehiculo.touched" class="invalid-feedback d-block">
                 El nombre del vehiculo es erroneo
             </small>            

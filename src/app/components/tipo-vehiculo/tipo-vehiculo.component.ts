@@ -92,8 +92,8 @@ export class TipoVehiculoComponent implements OnInit {
           this.tipovehiculo = response.tipoVehiculo;
           this.status = 'success';
           form.reset();
-          //this._router.navigate(['tipo-vehiculos']);
-          location.reload();//redireccion  a la pagina de inicio 
+          this._router.navigate(['tipo-vehiculos']);
+          //location.reload();//redireccion  a la pagina de inicio 
           
         }else{
           this.status = 'error';

@@ -13,6 +13,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.component';
+import { ListaVeComponent } from './components/lista-ve/lista-ve.component';
 //import { EjemploComponent } from './ejemplo/ejemplo.component';
 
 //importamos los modulos, las cosas que van a imprimir algo
@@ -26,6 +27,7 @@ import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.
     UserEditComponent,
     VehiculosComponent,
     TipoVehiculoComponent,
+    ListaVeComponent,
     //EjemploComponent,
   ],
   // se cargan los modulos
