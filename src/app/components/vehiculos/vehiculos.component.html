@@ -6,7 +6,7 @@
     </p>
     <hr/> <!--LINEA DIVISORIA-->
 
-     <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
         El vehiculo se ha creado correctamente !! 
     </div>
     
@@ -16,7 +16,7 @@
     <!--FORMULARIO DE CREAR CLASE DE VEHICULOS-->
     <!--ngform es formulario de angular-->    
     <!--ngIf sirve para hacer una condicion -->
-    <form #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)" class="py-1 h-100 col-md-7">
+    <form class="py-1 h-100 col-md-7" #vehiculoForm="ngForm" (ngSubmit)="onSubmit(vehiculoForm)">
         <div class="form-group">
             <label for="name">Nombre</label>
         <input type="text" name="claseVehiculo" class="form-control" placeholder="Esciba el nombre del vehiculo" #claseVehiculo="ngModel" [(ngModel)]="vehiculo.claseVehiculo" required>

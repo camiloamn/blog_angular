@@ -1,0 +1,46 @@
+<div class="container py-3 h-100">   
+    <p *ngIf="status != 'success'"> 
+        ( Crea un nuevo Documento )
+    </p>    
+    
+    <hr />
+    <!--LINEA DIVISORIA-->
+
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El documento se ha creado correctamente !!
+    </div>
+
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        El documento no se ha guardado !!!
+    </div>
+
+    <!--FORMULARIO DE CREAR TIPO DE VEHICULOS-->
+    <!--ngform es formulario de angular-->
+    <!--ngIf sirve para hacer una condicion si es el nombre y si toca el nombre -->
+    <!-- <br> -->
+    
+    <form class="py-1 h-100 col-md-7" #tDocumentosform="ngForm" (ngSubmit)="onSubmit(tDocumentosform)">
+        
+        <!--A la variable tDocumento.tipoDocumento (nombre casilla tabla) agregele el nombre-->
+        <div class="form-group">
+            <label for="tdocumento">Nombre</label>
+            <input type="text" name="tdocumento" #tdocumento="ngModel" [(ngModel)]="tDocumento.tipoDocumento" class="
+            form-control" required />
+
+            <small *ngIf="!
+            tdocumento.valid && tdocumento.touched" class="invalid-feedback d-block">
+                este campo es erroneo"!
+            </small>
+        </div>   
+    
+        <!--</div>-->
+
+        <input type="submit" value="Guardar" class="btn btn-info">        
+        <input type="button" value="Regresar" class="btn btn-primary" (click)="regresar()">
+        
+    </form>   
+
+</div>
+
+
+

@@ -14,6 +14,9 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.component';
 import { ListaVeComponent } from './components/lista-ve/lista-ve.component';
+import { DocVehiculosComponent } from './components/doc-vehiculos/doc-vehiculos.component';
+import { TDocumentosComponent } from './components/t-documentos/t-documentos.component';
+
 //import { EjemploComponent } from './ejemplo/ejemplo.component';
 
 //importamos los modulos, las cosas que van a imprimir algo
@@ -28,6 +31,8 @@ import { ListaVeComponent } from './components/lista-ve/lista-ve.component';
     VehiculosComponent,
     TipoVehiculoComponent,
     ListaVeComponent,
+    DocVehiculosComponent,
+    TDocumentosComponent,
     //EjemploComponent,
   ],
   // se cargan los modulos

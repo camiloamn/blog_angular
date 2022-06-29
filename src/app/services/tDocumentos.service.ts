@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from "@angular/common/http";
 import { identity } from 'rxjs';//cambie la ruta quite el identiy identity
-//import { identity, observable} from 'rxjs'; tenia unida en una sola este import
 import { Observable } from "rxjs";
 import { Tipovehiculos } from "../models/tipovehiculos";
 import { global } from "./global";
@@ -10,7 +9,7 @@ import { param } from "jquery";
 
 //definir la clase de servicios 
 @Injectable()
-export class tipoVehiculoService {
+export class tDocumentosService {
     public url: string;
     public token: any;
     public identity:any;
@@ -21,8 +20,8 @@ export class tipoVehiculoService {
         this.url = global.url;
     }
     //metodo que nos permite crear un nuevo tipo de vehiculo
-    store(token: any, tipovehiculos: any): Observable<any> {
-        let json = JSON.stringify(tipovehiculos);//la convierto en un json string
+    store(token: any, tDocumentos: any): Observable<any> {
+        let json = JSON.stringify(tDocumentos);//la convierto en un json string
         let params = "json=" + json;//defino la variable params y los datos qu ele paso por post
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -31,7 +30,7 @@ export class tipoVehiculoService {
         //console.log(params+'aqui esta el error');
         console.log('aquiiiiiii')
         console.log(params);
-        return this._http.post(this.url + 'tipo/store', params, { headers: headers });//peticion ajax
+        return this._http.post(this.url + 'tdoc/store', params, { headers: headers });//peticion ajax
 
     }
     //metodo que nos permite listar los vehiculos

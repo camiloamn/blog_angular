@@ -22,9 +22,9 @@ export class TipoVehiculoComponent implements OnInit {
   //public idid: any;
   //public idV : id
   public identity: any;
-  public token: any;
+  public token: any;  
   public tipovehiculo: Tipovehiculos;
-  public tVehiculos:any;
+  //public tVehiculos:any;
   public status: string | undefined;
   //public route: any;
   //public array: any=[];
@@ -90,9 +90,9 @@ export class TipoVehiculoComponent implements OnInit {
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
         if(response.status == "success"){//si la respuesta es correcta
           this.tipovehiculo = response.tipoVehiculo;
-          this.status = 'success';
-          form.reset();
+          this.status = 'success';          
           this._router.navigate(['tipo-vehiculos']);
+          form.reset();
           //location.reload();//redireccion  a la pagina de inicio 
           
         }else{
@@ -135,6 +135,9 @@ export class TipoVehiculoComponent implements OnInit {
     this.verSeleccion = this.opcionSeleccionado;
    /*  console.log(this.verSeleccion) */
     
+  }
+  continuar(): any{
+    this._router.navigate(['doc-vehiculos']);
   }
 
 }

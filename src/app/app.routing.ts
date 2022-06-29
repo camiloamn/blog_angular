@@ -9,8 +9,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from "./components/user-edit/user-edit.component";
 import { VehiculosComponent } from "./components/vehiculos/vehiculos.component";
-import { TipoVehiculoComponent } from "./components/tipo-vehiculo/tipo-vehiculo.component"; 
-import { ListaVeComponent } from "./components/lista-ve/lista-ve.component";
+import { TipoVehiculoComponent } from "./components/tipo-vehiculo/tipo-vehiculo.component";
+import { DocVehiculosComponent } from "./components/doc-vehiculos/doc-vehiculos.component"; 
+import { TDocumentosComponent } from "./components/t-documentos/t-documentos.component";
+//import { ListaVeComponent } from "./components/lista-ve/lista-ve.component";
+//import { Docvehiculos } from "./components/doc-vehiculo/doc-vehiculo.component";
 
 //DEFINIR LAS RUTAS en un array con los objetos json 
 const appRoutes: Routes = [
@@ -21,7 +24,9 @@ const appRoutes: Routes = [
     {path: 'registro', component:RegisterComponent},
     {path: 'ajustes', component:UserEditComponent},
     {path: 'crear-vehiculo', component:VehiculosComponent},
-    {path: 'lista-vehiculo', component:ListaVeComponent},
+    //{path: 'lista-vehiculo', component:ListaVeComponent},
+    {path: 't-documentos', component:TDocumentosComponent},
+    {path: 'doc-vehiculos', component:DocVehiculosComponent},
     {path: 'tipo-vehiculos', component:TipoVehiculoComponent},
     {path: '**', component: ErrorComponent}
 ];
