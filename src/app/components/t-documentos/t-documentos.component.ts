@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';//sirve para hacer redirecciones
+import { UserService } from 'src/app/services/user.service';//sirve para agarrar el token y la identidad del usuario
 import { TDocumentos } from 'src/app/models/tDocumentos';
 import { tDocumentosService } from 'src/app/services/tDocumentos.service';
-import { UserService } from 'src/app/services/user.service';//sirve para agarrar el token y la identidad del usuario
+
 
 
 @Component({
@@ -15,10 +16,9 @@ export class TDocumentosComponent implements OnInit {
   public page_tittle: string;
   public identity: any;
   public token: any;
-  public tDocumento: TDocumentos
+  public tDocumento: any = TDocumentos
   public status: string | undefined;
-
-
+  public array:any=[];
 
   constructor(
     private _route:ActivatedRoute,
@@ -26,10 +26,12 @@ export class TDocumentosComponent implements OnInit {
     private _tDocumentosService: tDocumentosService,
     private _userService: UserService
   ){
+    this.array = JSON.parse(localStorage.getItem('identity') + '');
+    this.tDocumento = new TDocumentos(0,'', this.array['id']);
     this.page_tittle = 'Crear tipos de documentos';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.tDocumento = new TDocumentos(0,'',0);
+    
    }
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class TDocumentosComponent implements OnInit {
         if(response.status == "success"){//si la respuesta es correcta
           this.tDocumento = response.tDocumento;
           this.status = 'success';          
-          this._router.navigate(['tipo-vehiculos']);
+          this._router.navigate(['t-documentos']);
           form.reset();
           //location.reload();//redireccion  a la pagina de inicio 
           
@@ -52,14 +54,13 @@ export class TDocumentosComponent implements OnInit {
         this.status = 'error';//me regresa el error 
         console.log(<any>error)
         form.reset();
-          this._router.navigate(['tipo-vehiculos']);
+          this._router.navigate(['t-documentos']);
       }
     );
       
   }
   regresar(): any{
     this._router.navigate(['inicio']);
-  }
-    
+  }    
 
 }

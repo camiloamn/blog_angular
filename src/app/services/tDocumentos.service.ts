@@ -3,6 +3,7 @@ import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from "@angular/commo
 import { identity } from 'rxjs';//cambie la ruta quite el identiy identity
 import { Observable } from "rxjs";
 import { Tipovehiculos } from "../models/tipovehiculos";
+import { TDocumentos } from "../models/tDocumentos";
 import { global } from "./global";
 import { param } from "jquery";
 
@@ -20,14 +21,14 @@ export class tDocumentosService {
         this.url = global.url;
     }
     //metodo que nos permite crear un nuevo tipo de vehiculo
-    store(token: any, tDocumentos: any): Observable<any> {
+        store(token: any, tDocumentos: any): Observable<any> {
         let json = JSON.stringify(tDocumentos);//la convierto en un json string
         let params = "json=" + json;//defino la variable params y los datos qu ele paso por post
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
             .set('Authorization', token);
 
-        //console.log(params+'aqui esta el error');
+        
         console.log('aquiiiiiii')
         console.log(params);
         return this._http.post(this.url + 'tdoc/store', params, { headers: headers });//peticion ajax

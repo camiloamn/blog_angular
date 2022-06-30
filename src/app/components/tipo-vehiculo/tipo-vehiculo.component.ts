@@ -68,14 +68,13 @@ export class TipoVehiculoComponent implements OnInit {
       console.log(keys); // echa un vistazo por consola para que veas lo que hace "Object.keys"
       return keys;  */ 
 
-    //this.tipovehiculo = new Tipovehiculos(this.idid,'','',this.array['id']);//instancia de el objeto vacio
+    //this.tipovehiculo = newTipovehiculos (this.idid,'','',this.array['id']);//instancia de el objeto vacio
 
     //console.log("estos")
     //this.getAll();
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {   
     
     //console.log(this.tipovehiculo);
   }
