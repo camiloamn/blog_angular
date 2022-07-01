@@ -12,6 +12,7 @@ import { VehiculosComponent } from "./components/vehiculos/vehiculos.component";
 import { TipoVehiculoComponent } from "./components/tipo-vehiculo/tipo-vehiculo.component";
 import { DocVehiculosComponent } from "./components/doc-vehiculos/doc-vehiculos.component"; 
 import { TDocumentosComponent } from "./components/t-documentos/t-documentos.component";
+import { ListasComponent } from "./components/listas/listas.component";
 //import { ListaVeComponent } from "./components/lista-ve/lista-ve.component";
 //import { Docvehiculos } from "./components/doc-vehiculo/doc-vehiculo.component";
 
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     {path: 'crear-vehiculo', component:VehiculosComponent},
     //{path: 'lista-vehiculo', component:ListaVeComponent},
     {path: 't-documentos', component:TDocumentosComponent},
+    {path: 'listas', component:ListasComponent},
     {path: 'doc-vehiculos', component:DocVehiculosComponent},
     {path: 'tipo-vehiculos', component:TipoVehiculoComponent},
     {path: '**', component: ErrorComponent}

@@ -16,6 +16,7 @@ import { TipoVehiculoComponent } from './components/tipo-vehiculo/tipo-vehiculo.
 import { ListaVeComponent } from './components/lista-ve/lista-ve.component';
 import { DocVehiculosComponent } from './components/doc-vehiculos/doc-vehiculos.component';
 import { TDocumentosComponent } from './components/t-documentos/t-documentos.component';
+import { ListasComponent } from './components/listas/listas.component';
 
 //import { EjemploComponent } from './ejemplo/ejemplo.component';
 
@@ -33,6 +34,7 @@ import { TDocumentosComponent } from './components/t-documentos/t-documentos.com
     ListaVeComponent,
     DocVehiculosComponent,
     TDocumentosComponent,
+    ListasComponent,
     //EjemploComponent,
   ],
   // se cargan los modulos
