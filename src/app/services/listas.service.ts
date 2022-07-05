@@ -17,13 +17,13 @@ export class listasService {
     ) {
         this.url = global.url;
     }
-    //metodo que nos permite crear un nuevo tipo de vehiculo
+    //metodo que nos permite crear un nuevo tipo de vehiculo y guardarlo
         store(token: any, listas: any): Observable<any> {
         let json = JSON.stringify(listas);//la convierto en un json string
-        let params = "json=" + json;//defino la variable params y los datos qu ele paso por post
+        let params = "json="+json;//defino la variable params y los datos qu ele paso por post
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-            .set('Authorization', token);
+                                       .set('Authorization', token);
 
         
         console.log('aquiiiiiii')
@@ -46,5 +46,9 @@ export class listasService {
         //console.log(params+'aqui esta el error');
         return this._http.post(this.url + 'getAllVehiculo', params, { headers: headers });//peticion ajax
 
+    }
+    getListass(): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.post(this.url + '/listas/index', {headers: headers});
     }
 }
