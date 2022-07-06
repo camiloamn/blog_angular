@@ -1,0 +1,15 @@
+.tablas {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    border-collapse: collapse;
+    border-color: black;
+}
+.container{
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: center;
+    margin:auto;    
+}
