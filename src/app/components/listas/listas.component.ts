@@ -20,6 +20,9 @@ export class ListasComponent implements OnInit {
     public token: any;
     public listas: any = Listas;
     public status: any;
+    public data: any;
+    public nombre: any;
+    public placa: any;
     //public status: string | undefined;
 
   constructor(
@@ -59,5 +62,19 @@ export class ListasComponent implements OnInit {
 
     );
   }
+  getDatos(result : any) {
+    console.log(result);
+    this.nombre = result.nombre;
+    this.placa = result.placa;
+}
+
+ getGener(pclave : any) {
+      const keyword = pclave.target.value;
+      const search = this._listasService.buscador(keyword).then(response => {
+          this.data = response;
+      })
+  }
+
+
 
 }

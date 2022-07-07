@@ -2,11 +2,37 @@
 <br>
 <div class="tablas">  
 
-  <div class="input-group">
+<!--   <div class="input-group">
     <input type="search" class="form-control rounded" placeholder="Search"
     aria-label="Search" aria-describedby="search-addon" />
     <button type="button" class="btn btn-outline-primary">search</button>
-  </div>
+  </div> -->
+  <div class="card-body">
+    <div class="row mt-12">
+        <div class="col-sm-6 pb-3">
+            <label for="exampleAccount"><h1>Busqueda de vehiculo</h1></label>
+            <input class="form-control" id="exampleAccount"
+                placeholder="Nombre o placa del vehiculo" type="text"
+                (input)="getGener($event)" value={{nombre}} required>
+            <div class="col-sm-12">
+                <div class="card card-body mb-1" *ngFor="let result of data"
+                    (click)="getDatos(result)" style="cursor: pointer;">
+                    <h6> Nombre: {{result.nombre}} </h6>
+                    <small class="text-primary">
+                        placa: {{result.placa}}
+                    </small>
+                    <!-- <small class="text-primary">
+                        Usuario: {{result.usuario}}
+                    </small> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <br>
 <br>

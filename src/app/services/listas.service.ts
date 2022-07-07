@@ -51,4 +51,16 @@ export class listasService {
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         return this._http.post(this.url + '/listas/index', {headers: headers});
     }
+
+    buscador(pclave : any) {
+        const response = new Promise(resolve => {
+
+            this._http.get(global.url + `listas/buscador?search=${pclave}`).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+        return response;
+}
 }
