@@ -4,6 +4,7 @@ import { identity } from 'rxjs';//cambie la ruta quite el identiy identity
 import { Observable } from "rxjs";
 import { Listas } from "../models/listas";
 import { global } from "./global";
+import { param } from "jquery";
 
 //definir la clase de servicios 
 @Injectable()
@@ -38,13 +39,13 @@ export class listasService {
         return this._http.post(this.url + 'tipo/index', { headers: headers });
     }
 
-    getAllVehiculo(token: any): Observable<any> {
+    getAllDocumentos(token: any): Observable<any> {
 
         //let json = JSON.stringify({ '': '' });
         let params = 'json={"as":"1"}';
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');//.set('Authorization',token);                         
         //console.log(params+'aqui esta el error');
-        return this._http.post(this.url + 'getAllVehiculo', params, { headers: headers });//peticion ajax
+        return this._http.post(this.url + 'listas/getAllDocumentos', params, { headers: headers });//peticion ajax
 
     }
     getListass(): Observable<any> {

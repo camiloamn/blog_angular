@@ -1,4 +1,5 @@
-<br>
+
+
 <br>
 <div class="tablas">  
 
@@ -13,7 +14,7 @@
             <label for="exampleAccount"><h1>Busqueda de vehiculo</h1></label>
             <input class="form-control" id="exampleAccount"
                 placeholder="Nombre o placa del vehiculo" type="text"
-                (input)="getGener($event)" value={{nombre}} required>
+                (input)="getGener02($event)" value={{nombre}} required>
             <div class="col-sm-12">
                 <div class="card card-body mb-1" *ngFor="let result of data"
                     (click)="getDatos(result)" style="cursor: pointer;">
@@ -33,42 +34,33 @@
 
 
 
-
-<br>
 <br>
 <!-- <div class="tablas"> -->
   <table class="table table-hover">
     <thead>
       <tr>
-        <td class="table">vehiculos</td>
-        <td class="table">tipovehiculo</td>
-        <td class="table">tipodocumento</td>
-        <td class="table">fechainicio</td>
-        <td class="table">fechafin</td>
-        <td class="table">url</td>
+        <!-- <td class="table">Vehiculos</td> -->
+        <td class="table">Nombre</td>
+        <td class="table">Placa</td>
+        <td class="table">Documento</td>
+        <td class="table">Fecha inicio</td>
+        <td class="table">Fecha fin</td>
+        <td class="table">Url</td>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let dt of tDocumentos"><!-- {{v.nombre}} -->
         <!-- <th scope="row">1</th> -->
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-    </tbody>
-
-    <tbody>
-      <tr>
-        <!-- <th scope="row">1</th> -->
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+        <!-- <td></td> -->
+        <td>{{nombre}}</td>
+        <td>{{placa}}</td>
+        <td>{{dt.tipoDocumento}}</td>
+        <td><input type="date" class="form-control" id="start"
+           name="fecrad" value="today" min="2018-01-01"
+            max="2030-12-31" placeholder="Fecha de radicado"></td>
+        <td><input type="date" class="form-control" id="start"
+           name="fecrad" value="today" min="2018-01-01"
+            max="2030-12-31" placeholder="Fecha de radicado"></td>
       </tr>
     </tbody>
 

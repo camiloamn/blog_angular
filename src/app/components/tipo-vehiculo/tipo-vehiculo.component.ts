@@ -32,8 +32,8 @@ export class TipoVehiculoComponent implements OnInit {
   //public vehiculos :any = Vehiculos;
   //public data:any=[];
 
-  opcionSeleccionado: string  = '0';
-  verSeleccion: string        = '';
+  //opcionSeleccionado: string  = '0';
+  //verSeleccion: string        = '';
   
   
   constructor(
@@ -90,9 +90,9 @@ export class TipoVehiculoComponent implements OnInit {
         if(response.status == "success"){//si la respuesta es correcta
           this.tipovehiculo = response.tipoVehiculo;
           this.status = 'success';          
-          this._router.navigate(['tipo-vehiculos']);
+          //this._router.navigate(['tipo-vehiculos']);
           form.reset();
-          //location.reload();//redireccion  a la pagina de inicio 
+          location.reload();//redireccion  a la pagina de inicio 
           
         }else{
           this.status = 'error';
@@ -131,7 +131,7 @@ export class TipoVehiculoComponent implements OnInit {
   capturar() {
 
     // Pasamos el valor seleccionado a la variable verSeleccion
-    this.verSeleccion = this.opcionSeleccionado;
+    //this.verSeleccion = this.opcionSeleccionado;
    /*  console.log(this.verSeleccion) */
     
   }
