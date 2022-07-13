@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';//agrgee esto nuevo
 import { global } from 'src/app/services/global';
 
 
+
 @Component({
   selector: 'app-listas',
   templateUrl:'./listas.component.html',
@@ -30,9 +31,42 @@ export class ListasComponent implements OnInit {
     public vehiculos: any;
     public tDocumentos: any;
     public documento : any=[];
+    public user:any;
     //public status: string | undefined;
+    //public bbb=localStorage.getItem('token');
 
     public afuConfig = {
+      multiple: false,
+      formatsAllowed: ".jpg,.png,.gif,.jpeg,.pdf,.txt,.docx",
+      maxSize: 2,
+      uploadAPI:  {
+        url: global.url + 'user/upload',
+        method:"POST",
+        headers: {        
+          "Authorization": this._userService.getToken()
+        },
+        responseType: 'json',
+      },
+      theme: "attachPin",
+      hideProgressBar: true,
+      hideResetBtn: true,
+      hideSelectBtn: true,
+      fileNameIndex: true,
+      replaceTexts: {
+        selectFileBtn: 'Seleccionar archivo',
+        resetBtn: 'Reset',
+        uploadBtn: 'Subir',
+        dragNDropBox: 'Arrastrar y soltar',
+        attachPinBtn: 'Sube tu avatar de usuario...',
+        afterUploadMsg_success: '¡ Subido correctamente !',
+        afterUploadMsg_error: '¡ Fallo en la subida !',
+        sizeLimit: 'Tamaño máx.'
+      }
+    }; 
+
+
+
+    /* public afuConfig = {
       multiple: false,
       formatsAllowed: ".jpg,.png,.txt,.doc,.xls",
       maxSize: "50",
@@ -41,7 +75,7 @@ export class ListasComponent implements OnInit {
         method:"POST",
         headers: {
        "Content-Type" : "text/plain;charset=UTF-8",
-       "Authorization" : this._userService.getToken()
+       "Authorization" : this.bbb
         
       },
         params: {
@@ -49,13 +83,13 @@ export class ListasComponent implements OnInit {
         },
         responseType: 'blob',
         withCredentials: false,
-      },
-      theme: "dragNDrop",/* attachPin */
-      hideProgressBar: false,/* mostrar barra de proceso */
-      hideResetBtn: true,
+      }, */
+      /*theme: "dragNDrop",/* attachPin */
+     /* hideProgressBar: false,/* mostrar barra de proceso */
+      /*hideResetBtn: true,
       hideSelectBtn: false,/* el btn */
       /* hideSelectBtn: true, */
-      fileNameIndex: true,
+      /* fileNameIndex: true,
       autoUpload: false,
       replaceTexts: {
         selectFileBtn: 'Select Files',
@@ -66,8 +100,8 @@ export class ListasComponent implements OnInit {
         afterUploadMsg_success: 'Successfully Uploaded !',
         afterUploadMsg_error: 'Upload Failed !',
         sizeLimit: 'Size Limit'
-      }
-  };
+      } */
+  /* }; */
 
 
   constructor(
@@ -76,7 +110,7 @@ export class ListasComponent implements OnInit {
     private _listasService: listasService,
     private _userService: UserService
     
-  ){
+  ){    
     this.lista = new Listas(0,0,0,0,'','','');
     this.page_tittle = 'Crear listas';
         
@@ -130,9 +164,15 @@ export class ListasComponent implements OnInit {
           this.data = response;
       })
   }
-  listasUpload(datos:any){
-    console.log(JSON.parse(datos.response));
+ /*  listasUpload2(datos:any){
+    let data = JSON.parse(datos.response);
 
+  } */
+  listasUpload(datos:any){
+    console.log(datos.body.message);
+    let data_image = datos.body.message;
+    this.user.image = data_image;
+    this.identity.image = data_image;
   }
 
 }

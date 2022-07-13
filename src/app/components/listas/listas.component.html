@@ -53,11 +53,19 @@
         <td><input type="date" class="form-control" id="start"
            name="fecrad" value="today" min="2018-01-01"
             max="2030-12-31" placeholder="Fecha de radicado"></td>
-      <angular-file-uploader 
+
+
+     <angular-file-uploader 
       
       [config]="afuConfig">
-</angular-file-uploader>    
-        
+      </angular-file-uploader>   
+
+<!-- <angular-file-uploader #fileUpload1
+[config]="afuConfig" 
+[resetUpload]="true"
+(ApiResponse)="listasUpload($event)">
+</angular-file-uploader>
+         -->
 
       </tr>
     </tbody>
