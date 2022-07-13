@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';//la importo para podeder cargar formularios
 import { HttpClientModule} from '@angular/common/http';//lo importo para utilizar ajax  
-
 import { routing, appRoutingProviders} from './app.routing';
+import { AngularFileUploaderModule } from "angular-file-uploader";//lo importo para utilizar el btn de subir archivos
+
 //import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -45,6 +46,7 @@ import { ListasComponent } from './components/listas/listas.component';
     HttpClientModule,
     //FroalaEditorModule.forRoot(),
     //FroalaViewModule.forRoot()
+    AngularFileUploaderModule,//lo grego para el uso de btn que sube archivos
   ],
 
   //cargamos los servicios

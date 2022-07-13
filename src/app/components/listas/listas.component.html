@@ -1,13 +1,9 @@
 
-
 <br>
+
 <div class="tablas">  
 
-<!--   <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="Search"
-    aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">search</button>
-  </div> -->
+
   <div class="card-body">
     <div class="row mt-12">
         <div class="col-sm-6 pb-3">
@@ -22,16 +18,12 @@
                     <small class="text-primary">
                         placa: {{result.placa}}
                     </small>
-                    <!-- <small class="text-primary">
-                        Usuario: {{result.usuario}}
-                    </small> -->
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 <br>
@@ -61,6 +53,12 @@
         <td><input type="date" class="form-control" id="start"
            name="fecrad" value="today" min="2018-01-01"
             max="2030-12-31" placeholder="Fecha de radicado"></td>
+      <angular-file-uploader 
+      
+      [config]="afuConfig">
+</angular-file-uploader>    
+        
+
       </tr>
     </tbody>
 

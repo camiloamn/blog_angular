@@ -8,11 +8,12 @@ import { tDocumentosService } from 'src/app/services/tDocumentos.service';
 import { Vehiculos } from 'src/app/models/vehiculos';
 import { NgModule } from '@angular/core';//agrgee esto nuevo
 import { NgForm } from '@angular/forms';//agrgee esto nuevo
+import { global } from 'src/app/services/global';
 
 
 @Component({
   selector: 'app-listas',
-  templateUrl: './listas.component.html',
+  templateUrl:'./listas.component.html',
   styleUrls: ['./listas.component.css'],
   providers: [UserService, listasService, tDocumentosService]
 })
@@ -31,6 +32,44 @@ export class ListasComponent implements OnInit {
     public documento : any=[];
     //public status: string | undefined;
 
+    public afuConfig = {
+      multiple: false,
+      formatsAllowed: ".jpg,.png,.txt,.doc,.xls",
+      maxSize: "50",
+      uploadAPI:  {
+        url: global.url+'user/upload',
+        method:"POST",
+        headers: {
+       "Content-Type" : "text/plain;charset=UTF-8",
+       "Authorization" : this._userService.getToken()
+        
+      },
+        params: {
+          'page': '1'
+        },
+        responseType: 'blob',
+        withCredentials: false,
+      },
+      theme: "dragNDrop",/* attachPin */
+      hideProgressBar: false,/* mostrar barra de proceso */
+      hideResetBtn: true,
+      hideSelectBtn: false,/* el btn */
+      /* hideSelectBtn: true, */
+      fileNameIndex: true,
+      autoUpload: false,
+      replaceTexts: {
+        selectFileBtn: 'Select Files',
+        resetBtn: 'Reset',
+        uploadBtn: 'Upload',
+        dragNDropBox: 'Drag N Drop',
+        attachPinBtn: 'Attach Files...',
+        afterUploadMsg_success: 'Successfully Uploaded !',
+        afterUploadMsg_error: 'Upload Failed !',
+        sizeLimit: 'Size Limit'
+      }
+  };
+
+
   constructor(
     private _route:ActivatedRoute,
     private _router: Router,
@@ -40,9 +79,7 @@ export class ListasComponent implements OnInit {
   ){
     this.lista = new Listas(0,0,0,0,'','','');
     this.page_tittle = 'Crear listas';
-    //this.array = JSON.parse(localStorage.getItem('identity') + '');
-    //this.tDocumento = new TDocumentos(0,'', this.array['id']);
-    
+        
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this._listasService.getAllDocumentos({}).subscribe(
@@ -65,9 +102,12 @@ export class ListasComponent implements OnInit {
         if(response.status == 'success'){
           this.lista = response.listas;
           this.status = 'success';
+          
           this._router.navigate(['/listas']);
+          
         }else{
           this.status = 'error';
+          form.reset();
         }
 
       },
@@ -90,7 +130,9 @@ export class ListasComponent implements OnInit {
           this.data = response;
       })
   }
+  listasUpload(datos:any){
+    console.log(JSON.parse(datos.response));
 
-
+  }
 
 }
