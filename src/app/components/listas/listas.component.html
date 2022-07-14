@@ -4,32 +4,12 @@
 <div class="tablas">  
 
 
- <!--  <div class="card-body">
-    <div class="row mt-12">
-        <div class="col-sm-6 pb-3">
-            <label for="exampleAccount"><h1>Busqueda de vehiculo</h1></label>
-            <input class="form-control" id="exampleAccount"
-                placeholder="Nombre o placa del vehiculo" type="text"
-                (input)="getGener02($event)" value={{nombre}} required>
-            <div class="col-sm-12">
-                <div class="card card-body mb-1" *ngFor="let result of data"
-                    (click)="getDatos(result)" style="cursor: pointer;">
-                    <h6> Nombre: {{result.nombre}} </h6>
-                    <small class="text-primary">
-                        placa: {{result.placa}}
-                    </small>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- -->
+ 
 
 <br>
 
 
-<div class="card">
+<div class="card" *ngIf = "!bandera" >
   <div class="card-header">
     <h2>Busqueda de vehiculo</h2>
   </div>
@@ -50,6 +30,7 @@
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
 <!--     <a href="#" class="btn btn-primary">Go somewhere</a>
  -->  
+ <input type="button" value="continuar" class="btn btn-primary" (click)= "next()">
 </div>
 </div>
 </div>
@@ -57,29 +38,48 @@
 </div>
 
 </div>
+</div>
 
+<!--  <div class="card-body">
+    <div class="row mt-12">
+        <div class="col-sm-6 pb-3">
+            <label for="exampleAccount"><h1>Busqueda de vehiculo</h1></label>
+            <input class="form-control" id="exampleAccount"
+                placeholder="Nombre o placa del vehiculo" type="text"
+                (input)="getGener02($event)" value={{nombre}} required>
+            <div class="col-sm-12">
+                <div class="card card-body mb-1" *ngFor="let result of data"
+                    (click)="getDatos(result)" style="cursor: pointer;">
+                    <h6> Nombre: {{result.nombre}} </h6>
+                    <small class="text-primary">
+                        placa: {{result.placa}}
+                    </small>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
-
-<!-- ********************************************************************* -->
-<!-- <div class="tablas"> no-->
- <!--  <table class="table table-hover">
+ <div class="tablas" *ngIf = "bandera"> 
+  <table class="table table-hover">
     <thead>
-      <tr> -->
-        <!-- <td class="table">Vehiculos</td> no-->
+      <tr> 
+        <!-- <td class="table">Vehiculos</td> --> 
         <!-- <td class="table">Nombre</td>
-        <td class="table">Placa</td>
+        <td class="table">Placa</td> -->
         <td class="table">Documento</td>
         <td class="table">Fecha inicio</td>
         <td class="table">Fecha fin</td>
         <td class="table">Url</td>
       </tr>
     </thead>
-    <tbody> -->
-     <!--  <tr *ngFor="let dt of tDocumentos"> --> <!--  si    - no {{v.nombre}} -->
+    <tbody> 
+        <tr *ngFor="let dt of tDocumentos"> <!--si- no {{v.nombre}} -->
         <!-- <th scope="row">1</th> no-->
         <!-- <td></td> no -->
         <!-- <td>{{nombre}}</td>
-        <td>{{placa}}</td>
+        <td>{{placa}}</td> -->
         <td>{{dt.tipoDocumento}}</td>
         <td><input type="date" class="form-control" id="start"
            name="fecrad" value="today" min="2018-01-01"
@@ -87,22 +87,30 @@
         <td><input type="date" class="form-control" id="start"
            name="fecrad" value="today" min="2018-01-01"
             max="2030-12-31" placeholder="Fecha de radicado"></td>
-
-
+            
      <angular-file-uploader 
       
       [config]="afuConfig">
-      </angular-file-uploader>    -->
+      </angular-file-uploader>
 
-<!-- <angular-file-uploader #fileUpload1 no
-[config]="afuConfig"                     no
-[resetUpload]="true"                     no
-(ApiResponse)="listasUpload($event)">    no
-</angular-file-uploader>                 no
-         -->
-     <!--  </tr>
+      
+
+        <!-- <angular-file-uploader #fileUpload1 no
+        [config]="afuConfig"                     no
+        [resetUpload]="true"                     no
+        (ApiResponse)="listasUpload($event)">    no
+        </angular-file-uploader>                 no-->         
+        </tr>      
     </tbody>
  
-  </table>-->
+  </table>
+  <div class="d-flex justify-content-end pt-3">
+    <!--<button type="button" class="btn btn-warning">Regresar</button>-->
+    <!--<button type="button" class="btn btn-success ms-2">Registrate</button>-->
+    <button class="btn btn-info">Guardar</button>
+    <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">                    
+  </div>           
 
-</div>
+
+ </div>
+

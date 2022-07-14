@@ -32,6 +32,7 @@ export class ListasComponent implements OnInit {
     public tDocumentos: any;
     public documento : any=[];
     public user:any;
+    public bandera:any;
     //public status: string | undefined;
     //public bbb=localStorage.getItem('token');
 
@@ -174,5 +175,11 @@ export class ListasComponent implements OnInit {
     this.user.image = data_image;
     this.identity.image = data_image;
   }
-
+  next(): any{
+    //this._router.navigate(['login']);
+    this.bandera=true;
+  }
+  regresar(): any{
+    this._router.navigate(['Listas']);
+  }
 }
