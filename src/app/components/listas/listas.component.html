@@ -1,13 +1,9 @@
 
 <br>
 
-<div class="tablas">  
-
-
- 
+<div class="tablas">
 
 <br>
-
 
 <div class="card" *ngIf = "!bandera" >
   <div class="card-header">
@@ -29,7 +25,23 @@
     <!-- h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
 <!--     <a href="#" class="btn btn-primary">Go somewhere</a>
- -->  
+ -->
+ 
+     
+ <!-- <form class="py-1 h-100 col-md-7" #tipoVehiculo="ngForm" (ngSubmit)="onSubmit(tipoVehiculo)">
+
+  <div class="form-group">
+      <label for="id_vehiculos">seleccione una opcion</label>
+      <select (change)="capturar()" name="id_vehiculos" #id_vehiculos="ngModel"
+          [(ngModel)]="tipovehiculo.id_vehiculos" class="form-control">
+          <option *ngFor="let v of vehiculos" value="{{v.id_vehiculos}}">
+              {{v.id_vehiculos}} - {{v.claseVehiculo}}
+          </option>
+      </select>
+  </div>
+   -->
+
+
  <input type="button" value="continuar" class="btn btn-primary" (click)= "next()">
 </div>
 </div>

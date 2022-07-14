@@ -11,7 +11,6 @@ import { NgForm } from '@angular/forms';//agrgee esto nuevo
 import { global } from 'src/app/services/global';
 
 
-
 @Component({
   selector: 'app-listas',
   templateUrl:'./listas.component.html',
@@ -65,8 +64,6 @@ export class ListasComponent implements OnInit {
       }
     }; 
 
-
-
     /* public afuConfig = {
       multiple: false,
       formatsAllowed: ".jpg,.png,.txt,.doc,.xls",
@@ -103,7 +100,6 @@ export class ListasComponent implements OnInit {
         sizeLimit: 'Size Limit'
       } */
   /* }; */
-
 
   constructor(
     private _route:ActivatedRoute,
@@ -175,11 +171,13 @@ export class ListasComponent implements OnInit {
     this.user.image = data_image;
     this.identity.image = data_image;
   }
-  next(): any{
+  next(){
     //this._router.navigate(['login']);
     this.bandera=true;
+    
   }
   regresar(): any{
-    this._router.navigate(['Listas']);
+    //this._router.navigate(['/inicio']);
+    this.bandera=false;
   }
 }
