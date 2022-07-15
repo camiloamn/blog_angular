@@ -180,4 +180,15 @@ export class ListasComponent implements OnInit {
     //this._router.navigate(['/inicio']);
     this.bandera=false;
   }
+  SendDataonChange(event: any, id:any) {
+    console.log(event.target.value);
+    console.log('fecha inicio', 'iddddddd ',id)
+    console.log(this.tDocumentos)
+    }
+
+    SendDataonChanges(event: any, id:any) {
+      console.log(event.target.value);
+      console.log('fecha fin', 'iddddddd ',id)
+      console.log(this.tDocumentos)
+      }  
 }

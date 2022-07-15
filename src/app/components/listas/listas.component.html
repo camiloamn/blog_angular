@@ -1,8 +1,6 @@
 
 <br>
-
 <div class="tablas">
-
 <br>
 
 <div class="card" *ngIf = "!bandera" >
@@ -22,26 +20,9 @@
                 placa: {{result.placa}}
             </small>            
      
-    <!-- h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-<!--     <a href="#" class="btn btn-primary">Go somewhere</a>
- -->
- 
+  <!-- <a href="#" class="btn btn-primary">Go somewhere</a>--> 
      
- <!-- <form class="py-1 h-100 col-md-7" #tipoVehiculo="ngForm" (ngSubmit)="onSubmit(tipoVehiculo)">
-
-  <div class="form-group">
-      <label for="id_vehiculos">seleccione una opcion</label>
-      <select (change)="capturar()" name="id_vehiculos" #id_vehiculos="ngModel"
-          [(ngModel)]="tipovehiculo.id_vehiculos" class="form-control">
-          <option *ngFor="let v of vehiculos" value="{{v.id_vehiculos}}">
-              {{v.id_vehiculos}} - {{v.claseVehiculo}}
-          </option>
-      </select>
-  </div>
-   -->
-
-
+  <!--  -->
  <input type="button" value="continuar" class="btn btn-primary" (click)= "next()">
 </div>
 </div>
@@ -87,38 +68,49 @@
       </tr>
     </thead>
     <tbody> 
-        <tr *ngFor="let dt of tDocumentos"> <!--si- no {{v.nombre}} -->
+        <tr *ngFor="let dt of tDocumentos"> <!--si-no {{v.nombre}} -->
         <!-- <th scope="row">1</th> no-->
-        <!-- <td></td> no -->
         <!-- <td>{{nombre}}</td>
         <td>{{placa}}</td> -->
         <td>{{dt.tipoDocumento}}</td>
-        <td><input type="date" class="form-control" id="start"
-           name="fecrad" value="today" min="2018-01-01"
+        <td><input type="date" (change)="SendDataonChange($event, dt.id_Documentos)" class="form-control" id="start"
+           name="fechainicio" value="today" min="2018-01-01"
             max="2030-12-31" placeholder="Fecha de radicado"></td>
-        <td><input type="date" class="form-control" id="start"
-           name="fecrad" value="today" min="2018-01-01"
+        <td><input type="date" (change)="SendDataonChanges($event, dt.id_Documentos)" class="form-control" id="start"
+           name="fechafin" value="today" min="2018-01-01"
             max="2030-12-31" placeholder="Fecha de radicado"></td>
-            
-     <angular-file-uploader 
+ 
+      <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+          
+        <!--   <small *ngIf="!fechainicio.valid && fechainicio.touched" class="invalid-feedback d-block">
+              este campo es erroneo"!
+          </small>           
+        
+    
+          <small *ngIf="!fechafin.valid && fechafin.touched" class="invalid-feedback d-block">
+              este campo es erroneo"!
+          </small>
+             --> 
+                    
+      <!-- inicio objeto subir doc -->      
+      <angular-file-uploader 
       
-      [config]="afuConfig">
-      </angular-file-uploader>
+        [config]="afuConfig">
 
-      
+      </angular-file-uploader>      
+      <!-- fin objeto subir doc -->
 
-        <!-- <angular-file-uploader #fileUpload1 no
-        [config]="afuConfig"                     no
-        [resetUpload]="true"                     no
-        (ApiResponse)="listasUpload($event)">    no
-        </angular-file-uploader>                 no-->         
+        <!-- <angular-file-uploader #fileUpload1 
+        [config]="afuConfig"                     
+        [resetUpload]="true"                     
+        (ApiResponse)="listasUpload($event)">    
+        </angular-file-uploader> -->      
+
         </tr>      
     </tbody>
  
   </table>
-  <div class="d-flex justify-content-end pt-3">
-    <!--<button type="button" class="btn btn-warning">Regresar</button>-->
-    <!--<button type="button" class="btn btn-success ms-2">Registrate</button>-->
+  <div class="d-flex justify-content-end pt-3">    
     <button class="btn btn-info">Guardar</button>
     <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">                    
   </div>           
