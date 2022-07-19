@@ -42,9 +42,9 @@ export class TDocumentosComponent implements OnInit {
         if(response.status == "success"){//si la respuesta es correcta
           this.tDocumento = response.tDocumento;
           this.status = 'success';          
-          this._router.navigate(['t-documentos']);
+          //this._router.navigate(['t-documentos']);
           form.reset();
-          //location.reload();//redireccion  a la pagina de inicio 
+          location.reload();//redireccion  a la pagina de inicio 
           
         }else{
           this.status = 'error';

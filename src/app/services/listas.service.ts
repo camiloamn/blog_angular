@@ -25,7 +25,6 @@ export class listasService {
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                        .set('Authorization', token);
-
         
         console.log('aquiiiiiii')
         console.log(params);

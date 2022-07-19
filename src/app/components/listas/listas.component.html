@@ -1,6 +1,7 @@
 
 <br>
 <div class="tablas">
+  <p *ngIf="status != 'success'"></p>
 <br>
 
 <div class="card" *ngIf = "!bandera" >
@@ -23,7 +24,7 @@
   <!-- <a href="#" class="btn btn-primary">Go somewhere</a>--> 
      
   <!--  -->
- <input type="button" value="continuar" class="btn btn-primary" (click)= "next()">
+ <input type="button" value="continuar" class="btn btn-primary" (click)= "next(result)">
 </div>
 </div>
 </div>
@@ -32,27 +33,6 @@
 
 </div>
 </div>
-
-<!--  <div class="card-body">
-    <div class="row mt-12">
-        <div class="col-sm-6 pb-3">
-            <label for="exampleAccount"><h1>Busqueda de vehiculo</h1></label>
-            <input class="form-control" id="exampleAccount"
-                placeholder="Nombre o placa del vehiculo" type="text"
-                (input)="getGener02($event)" value={{nombre}} required>
-            <div class="col-sm-12">
-                <div class="card card-body mb-1" *ngFor="let result of data"
-                    (click)="getDatos(result)" style="cursor: pointer;">
-                    <h6> Nombre: {{result.nombre}} </h6>
-                    <small class="text-primary">
-                        placa: {{result.placa}}
-                    </small>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
  <div class="tablas" *ngIf = "bandera"> 
   <table class="table table-hover">
@@ -81,22 +61,15 @@
             max="2030-12-31" placeholder="Fecha de radicado"></td>
  
       <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-          
-        <!--   <small *ngIf="!fechainicio.valid && fechainicio.touched" class="invalid-feedback d-block">
-              este campo es erroneo"!
-          </small>           
         
-    
-          <small *ngIf="!fechafin.valid && fechafin.touched" class="invalid-feedback d-block">
-              este campo es erroneo"!
-          </small>
-             --> 
-                    
+                   
       <!-- inicio objeto subir doc -->      
       <angular-file-uploader 
       
-        [config]="afuConfig">
-
+        [config]="afuConfig"
+        [resetUpload]="true"
+        (ApiResponse)="listasUpload($event,dt.id_Documentos
+        )">
       </angular-file-uploader>      
       <!-- fin objeto subir doc -->
 
@@ -111,9 +84,10 @@
  
   </table>
   <div class="d-flex justify-content-end pt-3">    
-    <button class="btn btn-info">Guardar</button>
+    <!-- <button class="btn btn-info">Guardar</button> -->
+    <input type="submit" value="guardar" class="btn btn-info" (click)= "guardar()">
     <input type="button" value="Regresar" class="btn btn-primary" (click)= "regresar()">                    
-  </div>           
+  </div>          
 
 
  </div>

@@ -13,182 +13,236 @@ import { global } from 'src/app/services/global';
 
 @Component({
   selector: 'app-listas',
-  templateUrl:'./listas.component.html',
+  templateUrl: './listas.component.html',
   styleUrls: ['./listas.component.css'],
   providers: [UserService, listasService, tDocumentosService]
 })
 export class ListasComponent implements OnInit {
 
-    public page_tittle: string;
-    public identity: any;
-    public token: any;
-    public lista: Listas;
-    public status: string | undefined;
-    public data: any;
-    public nombre: any;
-    public placa: any;
-    public vehiculos: any;
-    public tDocumentos: any;
-    public documento : any=[];
-    public user:any;
-    public bandera:any;
-    //public status: string | undefined;
-    //public bbb=localStorage.getItem('token');
+  public page_tittle: string;
+  public identity: any;
+  public token: any;
+  public lista: Listas;
+  public status: string | undefined;
+  public data: any;
+  public nombre: any;
+  public placa: any;
+  public vehiculos: any;
+  public tDocumentos: any;
+  public documento: any = [];
+  public user: any;
+  public bandera: any;
+  public list_listaD: any = [];
+  public list_new: any = [];
+  //public status: string | undefined;
+  //public bbb=localStorage.getItem('token');
 
-    public afuConfig = {
-      multiple: false,
-      formatsAllowed: ".jpg,.png,.gif,.jpeg,.pdf,.txt,.docx",
-      maxSize: 2,
-      uploadAPI:  {
-        url: global.url + 'user/upload',
-        method:"POST",
-        headers: {        
-          "Authorization": this._userService.getToken()
-        },
-        responseType: 'json',
-      },
-      theme: "attachPin",
-      hideProgressBar: true,
-      hideResetBtn: true,
-      hideSelectBtn: true,
-      fileNameIndex: true,
-      replaceTexts: {
-        selectFileBtn: 'Seleccionar archivo',
-        resetBtn: 'Reset',
-        uploadBtn: 'Subir',
-        dragNDropBox: 'Arrastrar y soltar',
-        attachPinBtn: 'Sube tu avatar de usuario...',
-        afterUploadMsg_success: '¡ Subido correctamente !',
-        afterUploadMsg_error: '¡ Fallo en la subida !',
-        sizeLimit: 'Tamaño máx.'
-      }
-    }; 
+  public afuConfig = {
+    multiple: false,
+    formatsAllowed: ".jpg,.txt,.docx,.pdf,.xml,.xlsx,.xls",
 
-    /* public afuConfig = {
-      multiple: false,
-      formatsAllowed: ".jpg,.png,.txt,.doc,.xls",
-      maxSize: "50",
-      uploadAPI:  {
-        url: global.url+'user/upload',
-        method:"POST",
-        headers: {
-       "Content-Type" : "text/plain;charset=UTF-8",
-       "Authorization" : this.bbb
-        
+    maxSize: 5,
+    uploadAPI: {
+      url: global.url + 'user/upload',
+      method: "POST",
+      headers: {
+        "Authorization": this._userService.getToken()
       },
-        params: {
-          'page': '1'
-        },
-        responseType: 'blob',
-        withCredentials: false,
-      }, */
-      /*theme: "dragNDrop",/* attachPin */
-     /* hideProgressBar: false,/* mostrar barra de proceso */
-      /*hideResetBtn: true,
-      hideSelectBtn: false,/* el btn */
-      /* hideSelectBtn: true, */
-      /* fileNameIndex: true,
-      autoUpload: false,
-      replaceTexts: {
-        selectFileBtn: 'Select Files',
-        resetBtn: 'Reset',
-        uploadBtn: 'Upload',
-        dragNDropBox: 'Drag N Drop',
-        attachPinBtn: 'Attach Files...',
-        afterUploadMsg_success: 'Successfully Uploaded !',
-        afterUploadMsg_error: 'Upload Failed !',
-        sizeLimit: 'Size Limit'
-      } */
-  /* }; */
+      responseType: 'json',
+    },
+    theme: "attachPin",
+    hideProgressBar: true,
+    hideResetBtn: true,
+    hideSelectBtn: true,
+    fileNameIndex: true,
+    attachPinText: 'subir documentos', /*para cambiar el nombre de los doc. */
+    replaceTexts: {
+      selectFileBtn: 'Seleccionar archivo',
+      resetBtn: 'Reset',
+      uploadBtn: 'Subir',
+      dragNDropBox: 'Arrastrar y soltar',
+      attachPinBtn: 'Sube tu avatar de usuario...',
+      afterUploadMsg_success: '¡ Subido correctamente !',
+      afterUploadMsg_error: '¡ Fallo en la subida !',
+      sizeLimit: 'Tamaño máx.'
+    }
+  };
 
   constructor(
-    private _route:ActivatedRoute,
+    private _route: ActivatedRoute,
     private _router: Router,
     private _listasService: listasService,
     private _userService: UserService
-    
-  ){    
-    this.lista = new Listas(0,0,0,0,'','','');
+
+  ) {
+    this.lista = new Listas(0, 0, 0, 0, '', '', '');
     this.page_tittle = 'Crear listas';
-        
+
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this._listasService.getAllDocumentos({}).subscribe(
 
-    response=>{
-      this.tDocumentos = response;
-      console.log("ressspuestaaa!!!!!!!!");
-      console.log(this.tDocumentos);
-      
-    }  
+      response => {
+        this.tDocumentos = response;
+        console.log("ressspuestaaa!!!!!!!!");
+        console.log(this.tDocumentos);
+
+        if (this.tDocumentos.length > 0) {
+          for (let index = 0; index < this.tDocumentos.length; index++) {
+            console.log("nombre ", index);
+            console.log(this.tDocumentos[index].tipoDocumento);
+            this.list_listaD.push({ 'id': this.tDocumentos[index].id_Documentos, 'ID_V': '', 'COD_T_VE': '', 'FI': '', 'FF': '', 'URL': '' });
+
+
+          }
+          console.log("listaaaa!")
+          console.log(this.list_listaD);
+        } else {
+          console.log("No hay documentos!")
+        }
+
+      }
     );
-    
-   }
+
+  }
 
   ngOnInit(): void {
   }
-  onSubmit(form:any){
+  onSubmit(form: any) {
     this._listasService.store(this.token, this.lista).subscribe(
       response => {
-        if(response.status == 'success'){
-          this.lista = response.listas;
+        if (response.status == 'success') {
+          this.lista = response.lista;
           this.status = 'success';
-          
-          this._router.navigate(['/listas']);
-          
-        }else{
-          this.status = 'error';
           form.reset();
+          location.reload();
+          //this._router.navigate(['listas']);
+
+        } else {
+          this.status = 'error';
+          //form.reset();
         }
 
       },
       error => {
-        console.log(error);
+
         this.status = 'error';
+        console.log(error);
+        form.reset();
+        this._router.navigate(['listas'])
+
       }
 
     );
   }
-  getDatos(result : any) {
+  getDatos(result: any) {
+    console.log('aquie result');
     console.log(result);
     this.nombre = result.nombre;
     this.placa = result.placa;
-}
-
- getGener02(pclave : any) {
-      const keyword = pclave.target.value;
-      const search = this._listasService.buscador(keyword).then(response => {
-          this.data = response;
-      })
   }
- /*  listasUpload2(datos:any){
-    let data = JSON.parse(datos.response);
 
-  } */
-  listasUpload(datos:any){
-    console.log(datos.body.message);
-    let data_image = datos.body.message;
-    this.user.image = data_image;
-    this.identity.image = data_image;
+  getGener02(pclave: any) {
+    const keyword = pclave.target.value;
+    const search = this._listasService.buscador(keyword).then(response => {
+      this.data = response;
+    })
   }
-  next(){
+  /*  listasUpload2(datos:any){
+     let data = JSON.parse(datos.response);
+ 
+   } */
+  listasUpload(datos: any, dt: any) {
+
+    console.log('aquiii datossss')
+    console.log(dt);
+    datos = JSON.parse(datos.response);
+    console.log(datos.image);
+
+    for (let index = 0; index < this.list_listaD.length; index++) {
+      if (this.list_listaD[index].id == dt) {
+        console.log(this.list_listaD[index].id, 'id tDocumento', dt);
+        this.list_listaD[index].URL = datos.image;
+      }
+    }
+    console.log(this.list_listaD);
+
+
+  }
+  next(result: any) {
+    console.log('aqui el result');
+    console.log(result);
+    for (let index = 0; index < this.list_listaD.length; index++) {
+      this.list_listaD[index].ID_V = result.id_vehiculos;
+      this.list_listaD[index].COD_T_VE = result.codigo;
+
+    }
+    this.nombre = result.nombre;
+    this.placa = result.placa;
     //this._router.navigate(['login']);
-    this.bandera=true;
-    
+    this.bandera = true;
+
   }
-  regresar(): any{
+  regresar(): any {
     //this._router.navigate(['/inicio']);
-    this.bandera=false;
+    this.bandera = false;
   }
-  SendDataonChange(event: any, id:any) {
+  SendDataonChange(event: any, id: any) {
     console.log(event.target.value);
-    console.log('fecha inicio', 'iddddddd ',id)
+    console.log('fecha inicio', id)
     console.log(this.tDocumentos)
+
+    for (let index = 0; index < this.list_listaD.length; index++) {
+      if (this.list_listaD[index].id == id) {
+        console.log(this.list_listaD[index].id, 'id tDocumento', id);
+        this.list_listaD[index].FI = event.target.value;
+      }
+    }
+    console.log(this.list_listaD);
+
+  }
+
+  SendDataonChanges(event: any, id: any) {
+    console.log(event.target.value);
+    console.log('fecha fin', id)
+    console.log(this.tDocumentos)
+    for (let index = 0; index < this.list_listaD.length; index++) {
+
+      if (this.list_listaD[index].id == id) {
+        console.log(this.list_listaD[index].id, 'id tDocumento', id);
+        this.list_listaD[index].FF = event.target.value;
+      }
+    }
+    console.log(this.list_listaD);
+  }
+  guardar() {
+    for (let index = 0; index < this.list_listaD.length; index++) {
+
+      if (this.list_listaD[index].id == '' ||
+        this.list_listaD[index].ID_V == '' ||
+        this.list_listaD[index].COD_T_VE == '' ||
+        this.list_listaD[index].FI == '' ||
+        this.list_listaD[index].FF == '' ||
+        this.list_listaD[index].URL == '') {
+
+      }else{
+        this.list_new.push(this.list_listaD[index]);
+        
+      }
+        console.log('aqui va la list new')
+        console.log(this.list_new);
     }
 
-    SendDataonChanges(event: any, id:any) {
-      console.log(event.target.value);
-      console.log('fecha fin', 'iddddddd ',id)
-      console.log(this.tDocumentos)
-      }  
+    if(this.list_new.length>0){
+      for (let index = 0; index < this.list_new.length; index++) {
+          this._listasService.store(new Listas(0,this.list_new[index].ID_V,this.list_new[index].COD_T_VE,this.list_new[index].id,this.list_new[index].FI,this.list_new[index].FF,this.list_new[index].URL));     
+      }
+      
+
+    }else{
+
+      console.log('NO HAY DATOS');
+    }
+
+  }
 }
