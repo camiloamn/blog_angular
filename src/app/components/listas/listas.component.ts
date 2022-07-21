@@ -9,6 +9,8 @@ import { Vehiculos } from 'src/app/models/vehiculos';
 import { NgModule } from '@angular/core';//agrgee esto nuevo
 import { NgForm } from '@angular/forms';//agrgee esto nuevo
 import { global } from 'src/app/services/global';
+//import { url } from 'inspector';
+
 
 
 @Component({
@@ -34,6 +36,7 @@ export class ListasComponent implements OnInit {
   public bandera: any;
   public list_listaD: any = [];
   public list_new: any = [];
+  
   //public status: string | undefined;
   //public bbb=localStorage.getItem('token');
 
@@ -79,6 +82,7 @@ export class ListasComponent implements OnInit {
     this.page_tittle = 'Crear listas';
 
     this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
     this.token = this._userService.getToken();
     this._listasService.getAllDocumentos({}).subscribe(
 
@@ -235,7 +239,13 @@ export class ListasComponent implements OnInit {
 
     if(this.list_new.length>0){
       for (let index = 0; index < this.list_new.length; index++) {
-          this._listasService.store(new Listas(0,this.list_new[index].ID_V,this.list_new[index].COD_T_VE,this.list_new[index].id,this.list_new[index].FI,this.list_new[index].FF,this.list_new[index].URL));     
+           //this._listasService.store(new Listas(0,Number(this.list_new[index].ID_V),Number(this.list_new[index].COD_T_VE),Number(this.list_new[index].id),this.list_new[index].FI+'',this.list_new[index].FF+'',this.list_new[index].URL+'')+'');
+           this._listasService.store(this.token, (new Listas(0,Number(this.list_new[index].id),Number(this.list_new[index].ID_V),Number(this.list_new[index].COD_T_VE),this.list_new[index].FI,this.list_new[index].FF,this.list_new[index].URL))).subscribe(
+            response =>{
+              console.log("respuesta de envio");
+              console.log(response);
+            }
+           )     
       }
       
 
