@@ -13,7 +13,7 @@ import { tDocumentosService } from 'src/app/services/tDocumentos.service';
   providers: [UserService, tDocumentosService]
 })
 export class TDocumentosComponent implements OnInit {
-  public page_tittle: string;
+  public page_title: string;
   public identity: any;
   public token: any;
   public tDocumento: any = TDocumentos
@@ -28,7 +28,7 @@ export class TDocumentosComponent implements OnInit {
   ){
     this.array = JSON.parse(localStorage.getItem('identity') + '');
     this.tDocumento = new TDocumentos(0,'', this.array['id']);
-    this.page_tittle = 'Crear tipos de documentos';
+    this.page_title = 'Bienvenido a crear documentos';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     

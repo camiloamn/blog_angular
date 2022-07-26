@@ -26,7 +26,7 @@ export class listasService {
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                        .set('Authorization', token);
         
-        console.log('aquiiiiiii')
+        console.log('aquiiiiiii esta mal')
         console.log(params);
         return this._http.post(this.url + 'listas/store', params, { headers: headers });//peticion ajax
 

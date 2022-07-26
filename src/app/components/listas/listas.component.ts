@@ -9,6 +9,7 @@ import { Vehiculos } from 'src/app/models/vehiculos';
 import { NgModule } from '@angular/core';//agrgee esto nuevo
 import { NgForm } from '@angular/forms';//agrgee esto nuevo
 import { global } from 'src/app/services/global';
+
 //import { url } from 'inspector';
 
 
@@ -44,7 +45,7 @@ export class ListasComponent implements OnInit {
     multiple: false,
     formatsAllowed: ".jpg,.txt,.docx,.pdf,.xml,.xlsx,.xls",
 
-    maxSize: 5,
+    maxSize: 2,
     uploadAPI: {
       url: global.url + 'user/upload',
       method: "POST",
@@ -78,7 +79,7 @@ export class ListasComponent implements OnInit {
     private _userService: UserService
 
   ) {
-    this.lista = new Listas(0, 0, 0, 0, '', '', '');
+    this.lista = new Listas(0, 0, 0, '', '', '');
     this.page_tittle = 'Crear listas';
 
     this.identity = this._userService.getIdentity();
@@ -95,8 +96,8 @@ export class ListasComponent implements OnInit {
           for (let index = 0; index < this.tDocumentos.length; index++) {
             console.log("nombre ", index);
             console.log(this.tDocumentos[index].tipoDocumento);
-            this.list_listaD.push({ 'id': this.tDocumentos[index].id_Documentos, 'ID_V': '', 'COD_T_VE': '', 'FI': '', 'FF': '', 'URL': '' });
-
+            this.list_listaD.push({ 'id': this.tDocumentos[index].id_Documentos, 'COD_T_VE': '', 'FI': '', 'FF': '', 'URL': '' });
+            
 
           }
           console.log("listaaaa!")
@@ -119,6 +120,7 @@ export class ListasComponent implements OnInit {
           this.lista = response.lista;
           this.status = 'success';
           form.reset();
+          //location.replace;
           location.reload();
           //this._router.navigate(['listas']);
 
@@ -133,11 +135,13 @@ export class ListasComponent implements OnInit {
         this.status = 'error';
         console.log(error);
         form.reset();
+        //location.reload();
         this._router.navigate(['listas'])
 
       }
 
     );
+    //this.regresar();
   }
   getDatos(result: any) {
     console.log('aquie result');
@@ -177,19 +181,26 @@ export class ListasComponent implements OnInit {
     console.log('aqui el result');
     console.log(result);
     for (let index = 0; index < this.list_listaD.length; index++) {
-      this.list_listaD[index].ID_V = result.id_vehiculos;
+      //this.list_listaD[index].ID_V = result.id_vehiculos;
       this.list_listaD[index].COD_T_VE = result.codigo;
 
     }
     this.nombre = result.nombre;
     this.placa = result.placa;
-    //this._router.navigate(['login']);
+    //this._router.navigate(['login']);    
     this.bandera = true;
+    //location.reload();
+    //this.list_listaD=[];
+    
 
   }
-  regresar(): any {
+  regresar() {
     //this._router.navigate(['/inicio']);
+    console.log('accion regresar')
     this.bandera = false;
+    location.reload();
+    //this.list_listaD = [''];
+    //this.list_listaD = ['']; 
   }
   SendDataonChange(event: any, id: any) {
     console.log(event.target.value);
@@ -223,7 +234,7 @@ export class ListasComponent implements OnInit {
     for (let index = 0; index < this.list_listaD.length; index++) {
 
       if (this.list_listaD[index].id == '' ||
-        this.list_listaD[index].ID_V == '' ||
+        //this.list_listaD[index].ID_V == '' ||
         this.list_listaD[index].COD_T_VE == '' ||
         this.list_listaD[index].FI == '' ||
         this.list_listaD[index].FF == '' ||
@@ -240,7 +251,7 @@ export class ListasComponent implements OnInit {
     if(this.list_new.length>0){
       for (let index = 0; index < this.list_new.length; index++) {
            //this._listasService.store(new Listas(0,Number(this.list_new[index].ID_V),Number(this.list_new[index].COD_T_VE),Number(this.list_new[index].id),this.list_new[index].FI+'',this.list_new[index].FF+'',this.list_new[index].URL+'')+'');
-           this._listasService.store(this.token, (new Listas(0,Number(this.list_new[index].id),Number(this.list_new[index].ID_V),Number(this.list_new[index].COD_T_VE),this.list_new[index].FI,this.list_new[index].FF,this.list_new[index].URL))).subscribe(
+           this._listasService.store(this.token, (new Listas(0,Number(this.list_new[index].COD_T_VE),Number(this.list_new[index].id),this.list_new[index].FI,this.list_new[index].FF,this.list_new[index].URL))).subscribe(
             response =>{
               console.log("respuesta de envio");
               console.log(response);

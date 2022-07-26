@@ -29,7 +29,7 @@ export class DocVehiculosComponent implements OnInit {
 
     
   ){
-    this.page_title = 'Lista de vehiculos';
+    this.page_title = 'Binevenido a los tipos de documentos';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();    
     this.docvehiculos = new Docvehiculos(0,'','','','','','','','','','','','','','','',0,0);

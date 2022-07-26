@@ -48,7 +48,7 @@ export class TipoVehiculoComponent implements OnInit {
     
     //darle valor a las propiedades
     this.tipovehiculo = new Tipovehiculos(0,'','',0);
-    this.page_title = 'bienvenidos a los tipos de vehiculo';
+    this.page_title = 'Bienvenido a los tipos de vehiculo';
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado
     this._tipoVehiculoService.getAllVehiculo({}).subscribe(//trae propiedades de vehiculo
@@ -102,7 +102,7 @@ export class TipoVehiculoComponent implements OnInit {
         this.status = 'error';//me regresa el error 
         console.log(<any>error)
         form.reset();
-          this._router.navigate(['tipo-vehiculos']);
+        this._router.navigate(['tipo-vehiculos']);
       }
     );
       

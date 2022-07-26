@@ -32,7 +32,7 @@ export class VehiculosComponent implements OnInit {
 
     //darle valor a las propiedaes 
 
-    this.page_title = "Vehiculos";
+    this.page_title = "Bienvenido a las Clases de Vehiculos";
     this.identity = this._userService.getIdentity();//tomamos el objeto del usuario identificado
     this.token = this._userService.getToken();//acccedo al token del usuario identificado 
     //this.vehiculo = new Vehiculos('',this.array['id']);//instancia de el objeto vacio
@@ -70,8 +70,10 @@ export class VehiculosComponent implements OnInit {
           this.vehiculo = response.vehiculo;
           this.status = 'success';
 
-          this._router.navigate(['crear-vehiculo']);//redireccion  a la pagina de inicio 
+          //this._router.navigate(['crear-vehiculo']);//redireccion  a la pagina de inicio 
           form.reset();
+          location.reload();//redireccion  a la pagina de inicio
+          
         } else {
           this.status = 'error';
         }
@@ -79,6 +81,8 @@ export class VehiculosComponent implements OnInit {
       error => {
         this.status = 'error';//me regresa el error 
         console.log(<any>error)
+        form.reset();
+        this._router.navigate(['crear-vehiculo']);
       }
     );
   }
