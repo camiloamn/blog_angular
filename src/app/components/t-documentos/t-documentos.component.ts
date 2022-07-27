@@ -4,6 +4,9 @@ import { UserService } from 'src/app/services/user.service';//sirve para agarrar
 import { TDocumentos } from 'src/app/models/tDocumentos';
 import { tDocumentosService } from 'src/app/services/tDocumentos.service';
 
+import 'sweetalert2/src/sweetalert2.scss';
+import Swal from 'sweetalert2'; 
+
 
 
 @Component({
@@ -35,7 +38,26 @@ export class TDocumentosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  }
+
+    
+   /* Swal.fire({   positivo
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+ */
+
+    /* Swal.fire({      error
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>'
+    })
+ */
+  } 
+  
   onSubmit(form:any){
     this._tDocumentosService.store(this.token, this.tDocumento).subscribe(//utilizar el metodo create
       response => {//me va a regresar o recoger los datos en caso de que todo sea correcto
@@ -45,6 +67,7 @@ export class TDocumentosComponent implements OnInit {
           //this._router.navigate(['t-documentos']);
           form.reset();
           location.reload();//redireccion  a la pagina de inicio 
+          
           
         }else{
           this.status = 'error';
@@ -61,6 +84,16 @@ export class TDocumentosComponent implements OnInit {
   }
   regresar(): any{
     this._router.navigate(['inicio']);
-  }    
+  }  
+  showModal(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>'
+      
+    })
+    
+  }  
 
 }
