@@ -126,6 +126,7 @@ export class ListasComponent implements OnInit {
 
         } else {
           this.status = 'error';
+          location.reload();
           //form.reset();
         }
 
@@ -135,8 +136,8 @@ export class ListasComponent implements OnInit {
         this.status = 'error';
         console.log(error);
         form.reset();
-        //location.reload();
-        this._router.navigate(['listas'])
+        location.reload();
+        //this._router.navigate(['listas'])
 
       }
 
@@ -266,4 +267,8 @@ export class ListasComponent implements OnInit {
     }
 
   }
+  actualizar(){
+
+  }
+
 }

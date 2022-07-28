@@ -92,7 +92,7 @@ export class TipoVehiculoComponent implements OnInit {
           this.status = 'success';          
           //this._router.navigate(['tipo-vehiculos']);
           form.reset();
-          //location.reload();//redireccion  a la pagina de inicio 
+          location.reload();//redireccion  a la pagina de inicio 
           
         }else{
           this.status = 'error';
@@ -102,7 +102,8 @@ export class TipoVehiculoComponent implements OnInit {
         this.status = 'error';//me regresa el error 
         console.log(<any>error)
         form.reset();
-        this._router.navigate(['tipo-vehiculos']);
+        location.reload();
+        //this._router.navigate(['tipo-vehiculos']);
       }
     );
       

@@ -63,4 +63,15 @@ export class listasService {
         });
         return response;
 }
+
+update(token:any, user:any):Observable<any>{
+    let json = JSON.stringify(user);//convierto los datos en un json string 
+    let params = "json="+json;
+
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');                                     
+
+    return this._http.put(this.url + 'listas/update', params, {headers: headers});                               
+
+
+}
 }

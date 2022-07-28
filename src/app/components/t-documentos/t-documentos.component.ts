@@ -78,7 +78,7 @@ export class TDocumentosComponent implements OnInit {
         console.log(<any>error)
         form.reset();
           this._router.navigate(['t-documentos']);
-      }
+      } 
     );
       
   }

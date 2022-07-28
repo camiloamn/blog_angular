@@ -45,6 +45,9 @@
         <td class="table">Fecha inicio</td>
         <td class="table">Fecha fin</td>
         <td class="table">Url</td>
+        <td class="table">Actualizar</td>
+          <!-- <button mat-flat-button (click)="recargar()" color="primary">Otra persona?</button> -->
+        
       </tr>
     </thead>
     <tbody> 
@@ -64,15 +67,19 @@
         
                    
       <!-- inicio objeto subir doc -->      
-      <angular-file-uploader 
+      
+      <td>
+        <angular-file-uploader 
       
         [config]="afuConfig"
         [resetUpload]="true"
         (ApiResponse)="listasUpload($event,dt.id_Documentos)">
-      </angular-file-uploader>      
+       </angular-file-uploader>      
       <!-- fin objeto subir doc -->  
-      
-      
+      </td>
+      <td>
+        <button mat-flat-button (click)="actualizar()" color="primary">Actualizar</button>
+      </td>
 
         </tr>      
     </tbody>
